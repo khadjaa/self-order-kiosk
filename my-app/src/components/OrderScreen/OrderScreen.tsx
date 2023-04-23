@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
 import s from './OrderScreen.module.css'
 import img from '../../images/french-fries.svg'
+import {useNavigate} from "react-router-dom";
 
 export const OrderScreen = () => {
 
     const [categoryDish, setCategoryDish] = useState('all')
     const [filter, setFilter] = useState('all')
+
+    const navigate = useNavigate()
 
     const categories = [
         {id: 1, name: 'Бургеры', image: img},
@@ -64,8 +67,6 @@ export const OrderScreen = () => {
         filteredArray = dishes.filter(el => el.categoryName === 'Супы')
     }
 
-
-
     return (
         <div className={s.menu}>
             <div className={s.categories}>
@@ -91,13 +92,31 @@ export const OrderScreen = () => {
             </div>
             <div className={s.menuDish}>
                 {filteredArray.map((dish) => (
-                    <div key={dish.id} className={s.card}>
+                    <div key={dish.id}
+                         onClick={() => navigate('/product')}
+                         className={s.card}>
                         <img src={dish.image} alt={dish.name}/>
                         <h3>{dish.name}</h3>
                         <p>{dish.description}</p>
                         <p>{dish.price} руб.</p>
                     </div>
                 ))}
+            </div>
+            <div className={s.orderInfo}>
+                <h2>Order #12345</h2>
+                <p><strong>Date:</strong> April 23, 2023</p>
+                <p><strong>Time:</strong> 12:30 PM</p>
+                <p><strong>Items:</strong></p>
+                <ul>
+                    <li>Chicken Sandwich</li>
+                    <li>Fries</li>
+                    <li>Coke</li>
+                </ul>
+                <p><strong>Total:</strong> $10.50</p>
+                <div className={s.orderButtons}>
+                    <button className={s.cancelButton}>Cancel Order</button>
+                    <button className={s.payButton}>Go to Payment</button>
+                </div>
             </div>
         </div>
     );

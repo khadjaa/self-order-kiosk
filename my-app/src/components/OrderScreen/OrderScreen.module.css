@@ -63,3 +63,77 @@
 .card p:last-of-type {
     font-weight: bold;
 }
+
+.orderInfo {
+    margin: 30px;
+    background-color: #fff;
+    border-radius: 50px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.orderInfo h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+.orderInfo p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #666666;
+}
+
+.orderInfo p strong {
+    font-weight: bold;
+    color: #333333;
+}
+
+.orderInfo ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.orderInfo li {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #666666;
+}
+
+.orderInfo p:last-of-type {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff6347;
+    margin-top: 20px;
+    border-top: 1px solid #eeeeee;
+    padding-top: 10px;
+}
+
+
+.orderButtons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.payButton,
+.cancelButton {
+    background-color: #4CAF50; /* зеленый цвет кнопки "Перейти к оплате" */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 36px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.cancelButton {
+    background-color: #f44336; /* красный цвет кнопки "Отменить заказ" */
+}
