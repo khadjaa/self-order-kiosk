@@ -1,3 +1,11 @@
+.homeScreen {
+    height: 100%;
+    width: auto;
+    background-color: #282c34;
+    background-image: url("/src/images/home_photo.jpg");
+    background-size: 100% 100%;
+}
+
 .header {
     display: flex;
     justify-content: center;
@@ -12,21 +20,13 @@
     display: flex;
     align-self: center;
     height: 100%;
-    width: 37%;
-}
-
-.homeScreen {
-    height: 725px;
-    width: auto;
-    background-color: #282c34;
+    width: 38%;
 }
 
 .main {
     display: flex;
     justify-content: center;
     height: 700px;
-    background-image: url("/src/images/real_kur.jpg");
-    background-size: 100% 100%;
 }
 
 .buttonOrder {
@@ -34,13 +34,13 @@
     display: flex;
     align-self: center;
     padding: 12px 24px;
-    margin-top: 200px ;
+    margin-top: 200px;
     position: fixed;
-    background-color: #007bff;
+    background-color: red;
     border: none;
-    border-radius: 15px;
+    border-radius: 30px;
     color: #fff;
-    font-size: 18px;
+    font-size: 33px;
     font-weight: 500;
     text-align: center;
     text-decoration: none;
@@ -50,14 +50,8 @@
 
 .buttonOrder:hover,
 .buttonOrder:focus {
-    background-color: #0062cc;
+    background-color: #d31010;
     transform: translateY(-1px);
-}
-
-.buttonOrder:active {
-    background-color: #005cbf;
-    transform: translateY(1px);
-    box-shadow: none;
 }
 
 @keyframes pulse {

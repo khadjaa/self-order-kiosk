@@ -7,14 +7,17 @@ import avaSoboy from '../../images/soboy.png'
 import vzale from '../../images/Vzale.png'
 import h from '../HomeScreen/HomeScreen.module.css'
 import s from './ChooseScreen.module.css'
+import {useNavigate} from "react-router-dom";
 
 const ChooseScreen = () => {
 
     // const orderType = useSelector((state: AppStoreType) => state.info.order)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const chooseOrderTypeHandler = (orderType: string) => {
         dispatch(chooseOrderTypeAC(orderType))
+        navigate('/order')
     }
 
     return (
