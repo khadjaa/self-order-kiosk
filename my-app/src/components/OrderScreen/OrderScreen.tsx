@@ -1,77 +1,42 @@
 import React, {useState} from 'react';
 import s from './OrderScreen.module.css'
-import img from '../../images/french-fries.svg'
 import {useNavigate} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {AppStoreType} from "../../store/store";
+import {CategoryType, ProductsType} from "../../store/orderInfoReducer";
 
 export const OrderScreen = () => {
+//  let tasks = useSelector<AppRootStateType, Array<TaskType>>((state => state.tasks[id]))
+    const categories = useSelector<AppStoreType, CategoryType[]>(state => state.info.order.categories)
+    const products = useSelector<AppStoreType, ProductsType[]>(state => state.info.order.products)
+    const orderType = useSelector((state: AppStoreType) => state.info.order.orderType)
+
+    console.log(products)
 
     const [categoryDish, setCategoryDish] = useState('all')
     const [filter, setFilter] = useState('all')
 
     const navigate = useNavigate()
 
-    const categories = [
-        {id: 1, name: 'Бургеры', image: img},
-        {id: 2, name: 'Пиццы', image: img},
-        {id: 3, name: 'Салаты', image: img},
-        {id: 4, name: 'Супы', image: img},
-    ];
-
-    const dishes = [
-        {
-            id: 1,
-            categoryName: 'Бургеры',
-            name: 'Бургер',
-            description: 'Сочный бургер с говяжьей котлетой, луком, помидорами и салатом',
-            price: 250,
-            image: 'https://via.placeholder.com/150',
-        },
-        {
-            id: 2,
-            categoryName: 'Пиццы',
-            name: 'Пицца',
-            description: 'Аппетитная пицца с ароматным томатным соусом, сыром и разнообразными топпингами',
-            price: 350,
-            image: 'https://via.placeholder.com/150',
-        },
-        {
-            id: 3,
-            categoryName: 'Салаты',
-            name: 'Салат',
-            description: 'Свежий салат с миксом листьев, овощами, сыром и заправкой на выбор',
-            price: 150,
-            image: 'https://via.placeholder.com/150',
-        },
-        {
-            id: 4,
-            name: 'Суп',
-            categoryName: 'Супы',
-            description: 'Ароматный суп с куриной грудкой, овощами и крупой на выбор',
-            price: 200,
-            image: 'https://via.placeholder.com/150',
-        },
-    ];
-
-    let filteredArray = dishes
+    let filteredArray = products
 
     if (filter === 'Бургеры') {
-        filteredArray = dishes.filter(el => el.categoryName === 'Бургеры')
+        filteredArray = products.filter(el => el.categoryName === 'Бургеры')
     }
     if (filter === 'Пиццы') {
-        filteredArray = dishes.filter(el => el.categoryName === 'Пиццы')
+        filteredArray = products.filter(el => el.categoryName === 'Пиццы')
     }
     if (filter === 'Салаты') {
-        filteredArray = dishes.filter(el => el.categoryName === 'Салаты')
+        filteredArray = products.filter(el => el.categoryName === 'Салаты')
     }
     if (filter === 'Супы') {
-        filteredArray = dishes.filter(el => el.categoryName === 'Супы')
+        filteredArray = products.filter(el => el.categoryName === 'Супы')
     }
 
     return (
         <div className={s.menu}>
             <div className={s.categories}>
                 {categories.map(category => {
-
                     const changeFilterHandler = () => {
                         setCategoryDish(category.name)
                         setFilter(category.name)
@@ -85,7 +50,7 @@ export const OrderScreen = () => {
                              }}
                              onClick={changeFilterHandler}
                         >
-                            <img src={category.image} alt="image"/>
+                            <img src={category.image} alt="ima"/>
                         </div>
                     )
                 })}
@@ -103,7 +68,7 @@ export const OrderScreen = () => {
                 ))}
             </div>
             <div className={s.orderInfo}>
-                <h2>Order #12345</h2>
+                <h2>Order {orderType}</h2>
                 <p><strong>Date:</strong> April 23, 2023</p>
                 <p><strong>Time:</strong> 12:30 PM</p>
                 <p><strong>Items:</strong></p>
