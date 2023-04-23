@@ -5,7 +5,7 @@ export type CategoryType = {
 }
 
 export type ProductsType = {
-    id: string,
+    id: number,
     categoryName: string,
     name: string,
     description: string,
@@ -65,11 +65,12 @@ const initialState = {
                 price: 200,
                 image: 'https://via.placeholder.com/150',
             },
-        ]
+        ],
+        product: {}
     },
 }
 
-type ActionsTypes = chooseOrderType
+type ActionsTypes = chooseOrderType | chooseProductType
 
 export const orderInfoReducer = (state: any = initialState, action: ActionsTypes) => {
     switch (action.type) {
@@ -77,6 +78,12 @@ export const orderInfoReducer = (state: any = initialState, action: ActionsTypes
             return {
                 ...state,
                 order: {...state.order, orderType: action.payload.orderedType}
+            }
+        }
+        case 'CHOOSE-PRODUCT': {
+            return {
+                ...state,
+                order: {...state.order, product: state.order.products[action.payload.id - 1]}
             }
         }
         default:
@@ -91,5 +98,13 @@ export const chooseOrderTypeAC = (orderedType: string) => {
         payload: {
             orderedType
         }
+    } as const
+}
+
+type chooseProductType = ReturnType<typeof chooseProductAC>
+export const chooseProductAC = (id: number) => {
+    return {
+        type: 'CHOOSE-PRODUCT',
+        payload: {id}
     } as const
 }

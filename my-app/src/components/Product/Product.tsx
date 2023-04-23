@@ -6,7 +6,7 @@ import {AppStoreType} from "../../store/store";
 
 export const Product = () => {
 
-    const product = useSelector((state: AppStoreType)=> state.info.order.products[1])
+    const product = useSelector((state: AppStoreType)=> state.info.order.product)
 
     const navigate = useNavigate()
 

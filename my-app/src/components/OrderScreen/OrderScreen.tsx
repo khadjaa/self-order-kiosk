@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import s from './OrderScreen.module.css'
 import {useNavigate} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../../store/store";
-import {CategoryType, ProductsType} from "../../store/orderInfoReducer";
+import {CategoryType, chooseProductAC, ProductsType} from "../../store/orderInfoReducer";
 
 export const OrderScreen = () => {
 //  let tasks = useSelector<AppRootStateType, Array<TaskType>>((state => state.tasks[id]))
@@ -11,7 +11,7 @@ export const OrderScreen = () => {
     const products = useSelector<AppStoreType, ProductsType[]>(state => state.info.order.products)
     const orderType = useSelector((state: AppStoreType) => state.info.order.orderType)
 
-    console.log(products)
+    const dispatch = useDispatch()
 
     const [categoryDish, setCategoryDish] = useState('all')
     const [filter, setFilter] = useState('all')
@@ -58,12 +58,14 @@ export const OrderScreen = () => {
             <div className={s.menuDish}>
                 {filteredArray.map((dish) => (
                     <div key={dish.id}
-                         onClick={() => navigate('/product')}
-                         className={s.card}>
+                         className={s.card}
+                         onClick={() => dispatch(chooseProductAC(dish.id))}
+                    >
                         <img src={dish.image} alt={dish.name}/>
                         <h3>{dish.name}</h3>
                         <p>{dish.description}</p>
                         <p>{dish.price} руб.</p>
+                        <button onClick={() => navigate('/product')}>Go to product</button>
                     </div>
                 ))}
             </div>
