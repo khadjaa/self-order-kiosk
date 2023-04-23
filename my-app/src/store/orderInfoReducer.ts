@@ -1,17 +1,71 @@
+import img from "../images/french-fries.svg";
 
-export type StateType = {
+export type CategoryType = {
+    id: string, name: string, image: string
+}
+
+export type ProductsType = {
+    id: string,
+    categoryName: string,
+    name: string,
+    description: string,
+    price: number,
+    image: string,
+}
+
+export type OrderStateType = {
     order: {
         orderType: string,
         orderItems: [],
-        paymentType: string
+        categories: CategoryType[],
+        products: ProductsType[]
     }
 }
 
 const initialState = {
     order: {
-        orderType: 'Eat in',
+        orderType: '',
         orderItems: [],
-        paymentType: 'Pay here'
+        categories: [
+            {id: 1, name: 'Бургеры', image: img},
+            {id: 2, name: 'Пиццы', image: img},
+            {id: 3, name: 'Салаты', image: img},
+            {id: 4, name: 'Супы', image: img},
+        ],
+        products: [
+            {
+                id: 1,
+                categoryName: 'Бургеры',
+                name: 'Бургер',
+                description: 'Сочный бургер с говяжьей котлетой, луком, помидорами и салатом',
+                price: 250,
+                image: 'https://via.placeholder.com/150',
+            },
+            {
+                id: 2,
+                categoryName: 'Пиццы',
+                name: 'Пицца',
+                description: 'Аппетитная пицца с ароматным томатным соусом, сыром и разнообразными топпингами',
+                price: 350,
+                image: 'https://via.placeholder.com/150',
+            },
+            {
+                id: 3,
+                categoryName: 'Салаты',
+                name: 'Салат',
+                description: 'Свежий салат с миксом листьев, овощами, сыром и заправкой на выбор',
+                price: 150,
+                image: 'https://via.placeholder.com/150',
+            },
+            {
+                id: 4,
+                name: 'Суп',
+                categoryName: 'Супы',
+                description: 'Ароматный суп с куриной грудкой, овощами и крупой на выбор',
+                price: 200,
+                image: 'https://via.placeholder.com/150',
+            },
+        ]
     },
 }
 
@@ -25,7 +79,8 @@ export const orderInfoReducer = (state: any = initialState, action: ActionsTypes
                 order: {...state.order, orderType: action.payload.orderedType}
             }
         }
-        default: return state
+        default:
+            return state
     }
 }
 
