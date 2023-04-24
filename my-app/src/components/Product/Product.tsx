@@ -3,21 +3,18 @@ import s from './Product.module.css'
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../../store/store";
-import {addProductAC, ProductsType} from "../../store/orderInfoReducer";
+import {addProductAC, changeCompoundAC, ProductsType} from "../../store/orderInfoReducer";
 
 export const Product = () => {
 
     const product = useSelector<AppStoreType, ProductsType>(state => state.info.order.product)
-    // const compound = useSelector<AppStoreType, CompoundType[]>(state => state.info.order.compound)
-    console.log(product)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const addProductHandler = () => {
         dispatch(addProductAC(product.id - 1))
         navigate('/order')
     }
-
-    const navigate = useNavigate()
 
     return (
         <div className={s.productCard}>
@@ -33,7 +30,11 @@ export const Product = () => {
                         return (
                             <li>
                                 <span>{el.name}</span>
-                                <input type="checkbox" checked={el.isDone}/>
+                                <input
+                                    type="checkbox"
+                                    checked={el.isDone}
+                                    onClick={() => dispatch(changeCompoundAC(product.id, el.id, !el.isDone))}
+                                />
                             </li>
                         )
                     })

@@ -4,7 +4,7 @@ export type CategoryType = {
     id: string, name: string, image: string
 }
 
-export type compoundTypes = {
+export type CompoundType = {
     id: number, name: string, isDone: boolean
 }
 
@@ -15,7 +15,7 @@ export type ProductsType = {
     description: string,
     price: number,
     image: string,
-    compound: compoundTypes[]
+    compound: CompoundType[]
 }
 
 export type OrderStateType = {
@@ -95,6 +95,7 @@ type ActionsTypes = chooseOrderType
     | chooseProductType
     | addProductType
     | cancelOrderType
+    | changeCompoundType
 
 export const orderInfoReducer = (state: any = initialState, action: ActionsTypes) => {
     switch (action.type) {
@@ -125,6 +126,26 @@ export const orderInfoReducer = (state: any = initialState, action: ActionsTypes
                 order: {
                     ...state.order,
                     orderItems: []
+                }
+            }
+        }
+        case 'CHANGE-COMPOUND' : {
+            debugger
+            return {
+                ...state,
+                order: {
+                    ...state.order,
+                    products: state.order.products
+                        .map((el: ProductsType) => el.id === action.payload.idProduct
+                            ? {
+                                ...el, compound: state.order.products[action.payload.idProduct].compound
+                                    .map((comp: CompoundType) => comp.id === action.payload.idCompound
+                                        ? {...comp, isDone: action.payload.newIsDone}
+                                        : comp)
+
+                            }
+                            : el
+                        )
                 }
             }
         }
@@ -164,5 +185,13 @@ type cancelOrderType = ReturnType<typeof cancelOrderAC>
 export const cancelOrderAC = () => {
     return {
         type: 'CANCEL-ORDER',
+    } as const
+}
+
+type changeCompoundType = ReturnType<typeof changeCompoundAC>
+export const changeCompoundAC = (idProduct: number, idCompound: number, newIsDone: boolean) => {
+    return {
+        type: 'CHANGE-COMPOUND',
+        payload: {idProduct, idCompound, newIsDone}
     } as const
 }
