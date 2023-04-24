@@ -13,11 +13,18 @@ export type ProductsType = {
     image: string,
 }
 
+export type CompoundType = {
+    id: number,
+    name: string,
+    isDone: boolean
+}
+
 export type OrderStateType = {
     order: {
         orderType: string,
         orderItems: ProductsType[],
         categories: CategoryType[],
+        compound: CompoundType[]
         products: ProductsType[]
     }
 }
@@ -65,6 +72,10 @@ const initialState = {
                 price: 200,
                 image: 'https://via.placeholder.com/150',
             },
+        ],
+        compound: [
+            {id: 1, name: 'Onion', isDone: true},
+            {id: 2, name: 'Souse', isDone: true},
         ],
         product: {}
     },

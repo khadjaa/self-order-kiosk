@@ -25,7 +25,7 @@ export const OrderScreen = () => {
     }
 
     const paymentHandler = () => {
-        navigate('/check')
+        // navigate('/check')
     }
 
     let filteredArray = products

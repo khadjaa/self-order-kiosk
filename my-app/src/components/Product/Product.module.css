@@ -6,7 +6,7 @@
     border: 1px solid #ccc;
     padding: 10px;
     cursor: pointer;
-    background-color: tomato;
+    background-color: #282c34;
 }
 
 .productImage {
@@ -20,14 +20,17 @@
 }
 
 .productDetails {
-    margin-top: 10px;
+    margin: 40px;
+    color: #cccccc;
+    font-size: 40px;
+    background-color: tomato;
 }
 
 .orderButtons {
     display: flex;
     width: 100%;
     justify-content: space-around;
-    margin-top: 20px;
+    margin: 30px;
     background-color: #282c34;
 }
 
@@ -37,11 +40,11 @@
     color: white;
     border: none;
     padding: 10px 20px;
+    margin: 30px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 36px;
-    margin-right: 10px;
     cursor: pointer;
     border-radius: 15px;
 }
