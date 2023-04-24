@@ -3,13 +3,14 @@ import s from './OrderScreen.module.css'
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../../store/store";
-import {CategoryType, chooseProductAC, ProductsType} from "../../store/orderInfoReducer";
+import {cancelOrderAC, CategoryType, chooseProductAC, ProductsType} from "../../store/orderInfoReducer";
 
 export const OrderScreen = () => {
 //  let tasks = useSelector<AppRootStateType, Array<TaskType>>((state => state.tasks[id]))
     const categories = useSelector<AppStoreType, CategoryType[]>(state => state.info.order.categories)
     const products = useSelector<AppStoreType, ProductsType[]>(state => state.info.order.products)
     const orderType = useSelector((state: AppStoreType) => state.info.order.orderType)
+    const orderItems = useSelector<AppStoreType, ProductsType[]>(state => state.info.order.orderItems)
 
     const dispatch = useDispatch()
 
@@ -17,6 +18,15 @@ export const OrderScreen = () => {
     const [filter, setFilter] = useState('all')
 
     const navigate = useNavigate()
+
+    const cancelOrderHandler = () => {
+        dispatch(cancelOrderAC())
+        navigate('/')
+    }
+
+    const paymentHandler = () => {
+        navigate('/check')
+    }
 
     let filteredArray = products
 
@@ -33,10 +43,13 @@ export const OrderScreen = () => {
         filteredArray = products.filter(el => el.categoryName === 'Супы')
     }
 
+    let sum = 0
+
     return (
         <div className={s.menu}>
             <div className={s.categories}>
                 {categories.map(category => {
+
                     const changeFilterHandler = () => {
                         setCategoryDish(category.name)
                         setFilter(category.name)
@@ -74,15 +87,19 @@ export const OrderScreen = () => {
                 <p><strong>Date:</strong> April 23, 2023</p>
                 <p><strong>Time:</strong> 12:30 PM</p>
                 <p><strong>Items:</strong></p>
-                <ul>
-                    <li>Chicken Sandwich</li>
-                    <li>Fries</li>
-                    <li>Coke</li>
-                </ul>
-                <p><strong>Total:</strong> $10.50</p>
+                {orderItems !== null
+                    ? orderItems.map(el => {
+                        sum += el.price
+                        return (
+                            <li>{el.name}: {el.price}р</li>
+                        )
+                    })
+                    : null
+                }
+                <p><strong>Total: </strong>{sum}р</p>
                 <div className={s.orderButtons}>
-                    <button className={s.cancelButton}>Cancel Order</button>
-                    <button className={s.payButton}>Go to Payment</button>
+                    <button className={s.cancelButton} onClick={cancelOrderHandler}>Cancel Order</button>
+                    <button className={s.payButton} onClick={paymentHandler}>Go to Payment</button>
                 </div>
             </div>
         </div>

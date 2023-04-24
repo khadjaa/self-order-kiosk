@@ -16,7 +16,7 @@ export type ProductsType = {
 export type OrderStateType = {
     order: {
         orderType: string,
-        orderItems: [],
+        orderItems: ProductsType[],
         categories: CategoryType[],
         products: ProductsType[]
     }
@@ -70,7 +70,10 @@ const initialState = {
     },
 }
 
-type ActionsTypes = chooseOrderType | chooseProductType
+type ActionsTypes = chooseOrderType
+    | chooseProductType
+    | addProductType
+    | cancelOrderType
 
 export const orderInfoReducer = (state: any = initialState, action: ActionsTypes) => {
     switch (action.type) {
@@ -84,6 +87,24 @@ export const orderInfoReducer = (state: any = initialState, action: ActionsTypes
             return {
                 ...state,
                 order: {...state.order, product: state.order.products[action.payload.id - 1]}
+            }
+        }
+        case 'ADD-PRODUCT' : {
+            return {
+                ...state,
+                order: {
+                    ...state.order,
+                    orderItems: [state.order.products[action.payload.id], ...state.order.orderItems]
+                }
+            }
+        }
+        case 'CANCEL-ORDER' : {
+            return {
+                ...state,
+                order: {
+                    ...state.order,
+                    orderItems: []
+                }
             }
         }
         default:
@@ -106,5 +127,21 @@ export const chooseProductAC = (id: number) => {
     return {
         type: 'CHOOSE-PRODUCT',
         payload: {id}
+    } as const
+}
+
+type addProductType = ReturnType<typeof addProductAC>
+export const addProductAC = (id: number) => {
+    return {
+        type: 'ADD-PRODUCT',
+        payload: {id}
+    } as const
+}
+
+
+type cancelOrderType = ReturnType<typeof cancelOrderAC>
+export const cancelOrderAC = () => {
+    return {
+        type: 'CANCEL-ORDER',
     } as const
 }
