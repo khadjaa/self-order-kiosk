@@ -3,13 +3,13 @@ import s from './Product.module.css'
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../../store/store";
-import {addProductAC, CompoundType} from "../../store/orderInfoReducer";
+import {addProductAC, ProductsType} from "../../store/orderInfoReducer";
 
 export const Product = () => {
 
-    const product = useSelector((state: AppStoreType) => state.info.order.product)
-    const compound = useSelector<AppStoreType, CompoundType[]>(state => state.info.order.compound)
-
+    const product = useSelector<AppStoreType, ProductsType>(state => state.info.order.product)
+    // const compound = useSelector<AppStoreType, CompoundType[]>(state => state.info.order.compound)
+    console.log(product)
     const dispatch = useDispatch()
 
     const addProductHandler = () => {
@@ -29,7 +29,7 @@ export const Product = () => {
                 <p>{product.description}</p>
                 <p>Состав</p>
                 {
-                    compound.map(el => {
+                    product.compound.map(el => {
                         return (
                             <li>
                                 <span>{el.name}</span>

@@ -4,6 +4,10 @@ export type CategoryType = {
     id: string, name: string, image: string
 }
 
+export type compoundTypes = {
+    id: number, name: string, isDone: boolean
+}
+
 export type ProductsType = {
     id: number,
     categoryName: string,
@@ -11,12 +15,7 @@ export type ProductsType = {
     description: string,
     price: number,
     image: string,
-}
-
-export type CompoundType = {
-    id: number,
-    name: string,
-    isDone: boolean
+    compound: compoundTypes[]
 }
 
 export type OrderStateType = {
@@ -24,7 +23,6 @@ export type OrderStateType = {
         orderType: string,
         orderItems: ProductsType[],
         categories: CategoryType[],
-        compound: CompoundType[]
         products: ProductsType[]
     }
 }
@@ -47,6 +45,10 @@ const initialState = {
                 description: 'Сочный бургер с говяжьей котлетой, луком, помидорами и салатом',
                 price: 250,
                 image: 'https://via.placeholder.com/150',
+                compound: [
+                    {id: 1, name: 'Bulka', isDone: true},
+                    {id: 2, name: 'Souse', isDone: true},
+                ]
             },
             {
                 id: 2,
@@ -55,6 +57,10 @@ const initialState = {
                 description: 'Аппетитная пицца с ароматным томатным соусом, сыром и разнообразными топпингами',
                 price: 350,
                 image: 'https://via.placeholder.com/150',
+                compound: [
+                    {id: 1, name: 'Testo', isDone: true},
+                    {id: 2, name: 'Souse', isDone: true},
+                ]
             },
             {
                 id: 3,
@@ -63,6 +69,10 @@ const initialState = {
                 description: 'Свежий салат с миксом листьев, овощами, сыром и заправкой на выбор',
                 price: 150,
                 image: 'https://via.placeholder.com/150',
+                compound: [
+                    {id: 1, name: 'Onion', isDone: true},
+                    {id: 2, name: 'Souse', isDone: true},
+                ]
             },
             {
                 id: 4,
@@ -71,11 +81,11 @@ const initialState = {
                 description: 'Ароматный суп с куриной грудкой, овощами и крупой на выбор',
                 price: 200,
                 image: 'https://via.placeholder.com/150',
+                compound: [
+                    {id: 1, name: 'Bulon', isDone: true},
+                    {id: 2, name: 'Souse', isDone: true},
+                ]
             },
-        ],
-        compound: [
-            {id: 1, name: 'Onion', isDone: true},
-            {id: 2, name: 'Souse', isDone: true},
         ],
         product: {}
     },
