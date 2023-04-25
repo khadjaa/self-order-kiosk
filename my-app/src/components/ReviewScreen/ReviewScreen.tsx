@@ -19,6 +19,10 @@ export const ReviewScreen = () => {
         navigate('/')
     }
 
+    const paymentHandler = () => {
+        navigate('/payment')
+    }
+
     return (
         <div className={r.review}>
             <p>ВАШ ЗАКАЗ</p>
@@ -40,7 +44,7 @@ export const ReviewScreen = () => {
             </div>
             <div className={r.reviewButtons}>
                 <button className={s.cancelButton} onClick={cancelOrderHandler}>Cancel</button>
-                <button className={s.payButton} onClick={() => {}}>Payment</button>
+                <button className={s.payButton} onClick={paymentHandler}>Payment</button>
             </div>
         </div>
     );
