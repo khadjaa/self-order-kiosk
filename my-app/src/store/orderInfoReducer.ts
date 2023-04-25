@@ -130,6 +130,42 @@ export const orderInfoReducer = (state: any = initialState, action: ActionsTypes
             }
         }
 
+        // case ORDER_ADD_ITEM: {
+        //             const item = action.payload;
+        //             const existItem = state.order.orderItems.find(
+        //                 (x) => x.name === item.name
+        //             );
+        //             const orderItems = existItem
+        //                 ? state.order.orderItems.map((x) =>
+        //                     x.name === existItem.name ? item : x
+        //                 )
+        //                 : [...state.order.orderItems, item];
+        //
+        //             const itemsCount = orderItems.reduce((a, c) => a + c.quantity, 0);
+        //             const itemsPrice = orderItems.reduce(
+        //                 (a, c) => a + c.quantity * c.price,
+        //                 0
+        //             );
+        //             const taxPrice = Math.round(0.15 * itemsPrice * 100) / 100;
+        //             const totalPrice = Math.round((itemsPrice) * 100) / 100;
+        //             return {
+        //                 ...state,
+        //                 order: {
+        //                     ...state.order,
+        //                     orderItems,
+        //                     taxPrice,
+        //                     totalPrice,
+        //                     itemsCount,
+        //                 },
+        //             };
+        //         }
+
+        //             const itemsCount = orderItems.reduce((a, c) => a + c.quantity, 0);
+        //             const itemsPrice = orderItems.reduce(
+        //                 (a, c) => a + c.quantity * c.price,
+        //                 0
+        //             );
+
         case 'CHANGE-COMPOUND' : {
             const newCompound = state.order.product.compound
                 .map((comp: CompoundType) => {
@@ -141,7 +177,7 @@ export const orderInfoReducer = (state: any = initialState, action: ActionsTypes
                 })
             const newProducts = state.order.products.
                 map((prod: ProductsType) => prod.id === action.payload.idProduct
-                ? {...prod, compound: state.order.products[action.payload.idProduct].compound
+                ? {...prod, compound: state.order.products[action.payload.idProduct - 1].compound
                         .map((comp: CompoundType) => comp.id === action.payload.idCompound
                         ? {...comp, isDone: action.payload.newIsDone}
                         : comp)}
