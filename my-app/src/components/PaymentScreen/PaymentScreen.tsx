@@ -4,6 +4,7 @@ import {shallowEqual, useSelector} from "react-redux";
 import {AppStoreType} from "../../store/store";
 import {ProductsType} from "../../store/orderInfoReducer";
 import {PopupWindow} from "./PopupWindow";
+import {useNavigate} from "react-router-dom";
 
 const PaymentPageWrapper = styled.div`
   display: flex;
@@ -47,6 +48,7 @@ const PaymentInstructions = styled.div`
 export const PaymentScreen = () => {
 
     const orderItems = useSelector<AppStoreType, ProductsType[]>(state => state.info.order.orderItems, shallowEqual)
+    const navigate = useNavigate()
 
     let sum = 0
     const totalPrice = orderItems.map(el => sum += el.price)
@@ -61,6 +63,10 @@ export const PaymentScreen = () => {
     const handleClosePopup = () => {
         setIsOpen(false);
     };
+
+    // setTimeout( () => {
+    //     navigate('/')
+    // }, 45000)
 
     return (
         <PaymentPageWrapper>

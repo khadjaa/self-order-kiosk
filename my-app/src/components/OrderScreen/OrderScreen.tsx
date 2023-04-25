@@ -82,10 +82,8 @@ export const OrderScreen = () => {
                 ))}
             </div>
             <div className={s.orderInfo}>
-                <h2>Order {orderType}</h2>
-                <p><strong>Date:</strong> April 23, 2023</p>
-                <p><strong>Time:</strong> 12:30 PM</p>
-                <p><strong>Items:</strong></p>
+                <h2>ЗАКАЗ {orderType}</h2>
+                <p><strong>БЛЮДА:</strong></p>
                 {orderItems !== null
                     ? orderItems.map(el => {
                         sum += el.price
@@ -95,10 +93,10 @@ export const OrderScreen = () => {
                     })
                     : null
                 }
-                <p><strong>Total: </strong>{sum}р</p>
+                <p><strong>К ОПЛАТЕ: </strong>{sum}р</p>
                 <div className={s.orderButtons}>
-                    <button className={s.cancelButton} onClick={cancelOrderHandler}>Cancel Order</button>
-                    <button className={s.payButton} onClick={paymentHandler}>Go to Payment</button>
+                    <button className={s.cancelButton} onClick={cancelOrderHandler}>ОТМЕНИТЬ</button>
+                    <button className={s.payButton} onClick={paymentHandler}>ПЕРЕЙТИ К ЗАКАЗУ</button>
                 </div>
             </div>
         </div>
