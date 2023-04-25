@@ -6,13 +6,11 @@ import {AppStoreType} from "../../store/store";
 import {cancelOrderAC, CategoryType, chooseProductAC, ProductsType} from "../../store/orderInfoReducer";
 
 export const OrderScreen = () => {
-//  let tasks = useSelector<AppRootStateType, Array<TaskType>>((state => state.tasks[id]))
     const categories = useSelector<AppStoreType, CategoryType[]>(state => state.info.order.categories)
     const products = useSelector<AppStoreType, ProductsType[]>(state => state.info.order.products)
     const orderType = useSelector((state: AppStoreType) => state.info.order.orderType)
     const orderItems = useSelector<AppStoreType, ProductsType[]>(state => state.info.order.orderItems, shallowEqual)
 
-    console.log(orderItems)
     const dispatch = useDispatch()
 
     const [categoryDish, setCategoryDish] = useState('all')

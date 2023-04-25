@@ -175,8 +175,8 @@ export const orderInfoReducer = (state: any = initialState, action: ActionsTypes
                         return comp
                     }
                 })
-            const newProducts = state.order.products.
-                map((prod: ProductsType) => prod.id === action.payload.idProduct
+            const newProducts = state.order.products
+                .map((prod: ProductsType) => prod.id === action.payload.idProduct
                 ? {...prod, compound: state.order.products[action.payload.idProduct - 1].compound
                         .map((comp: CompoundType) => comp.id === action.payload.idCompound
                         ? {...comp, isDone: action.payload.newIsDone}

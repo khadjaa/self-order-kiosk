@@ -1,4 +1,8 @@
 import styled from 'styled-components';
+import {useNavigate} from "react-router-dom";
+import ok from '../../images/Ok.png'
+import no from '../../images/No.png'
+import React from "react";
 
 const Popup = styled.div`
   position: fixed;
@@ -21,22 +25,35 @@ const PopupContent = styled.div`
 type PopupWindowPropsType = {
     isOpen: boolean
     onClose: () => void
+    paymentStatus: boolean
     children: React.ReactNode
 }
 
-export const PopupWindow: React.FC<PopupWindowPropsType> = ({ isOpen, onClose, children }) => {
+export const PopupWindow: React.FC<PopupWindowPropsType> = ({isOpen, onClose, paymentStatus, children}) => {
+
+    const navigate = useNavigate()
 
     setTimeout(() => {
         onClose()
-    },3000)
+        // navigate('/')
+    }, 5000)
 
     return (
         <>
             {isOpen && (
                 <Popup>
-                    <PopupContent>
-                        {children}
-                    </PopupContent>
+                    {
+                        paymentStatus
+                            ? <PopupContent>
+                                <img src={ok} alt="ok"/>
+                                <p>НОМЕР ВАШЕГО ЗАКАЗА 2134</p>
+                                <p>СФОТОГРАЙФИРУЙТЕ ИЛИ ЗАПОМНИТЕ НОМЕР ЗАКАЗА</p>
+                            </PopupContent>
+                            : <PopupContent>
+                                <img src={no} alt="no"/>
+                                <p>ОШИБКА ПРИ СОВЕРШЕНИИ ОПЛАТЫ</p>
+                            </PopupContent>
+                    }
                 </Popup>
             )}
         </>

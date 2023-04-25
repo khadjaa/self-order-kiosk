@@ -47,9 +47,11 @@ const PaymentInstructions = styled.div`
 export const PaymentScreen = () => {
 
     const orderItems = useSelector<AppStoreType, ProductsType[]>(state => state.info.order.orderItems, shallowEqual)
+
     let sum = 0
     const totalPrice = orderItems.map(el => sum += el.price)
 
+    const [paymentStatus, setPaymentStatus] = useState(false)
     const [isOpen, setIsOpen] = useState(false);
 
     const handleOpenPopup = () => {
@@ -66,11 +68,11 @@ export const PaymentScreen = () => {
                 <QRCodeImage
                     src={'https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcSh-wrQu254qFaRcoYktJ5QmUhmuUedlbeMaQeaozAVD4lh4ICsGdBNubZ8UlMvWjKC'}
                     alt="QR Code"/>
-                <PaymentAmount>К оплате {totalPrice}р</PaymentAmount>
+                <PaymentAmount>К оплате {sum}р</PaymentAmount>
                 <PaymentInstructions>Пожалуйста, наведите камеру на QR-код для совершения оплаты</PaymentInstructions>
             </PaymentBox>
             <button onClick={handleOpenPopup}>Открыть всплывающее окно</button>
-            <PopupWindow isOpen={isOpen} onClose={handleClosePopup}>
+            <PopupWindow isOpen={isOpen} onClose={handleClosePopup} paymentStatus={paymentStatus}>
                 <p>НОМЕР ВАШЕГО ЗАКАЗА 2134</p>
                 <p>СФОТОГРАЙФИРУЙТЕ ИЛИ ЗАПОМНИТЕ НОМЕР ЗАКАЗА</p>
             </PopupWindow>
