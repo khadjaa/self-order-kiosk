@@ -15,8 +15,7 @@ export const ReviewScreen = () => {
     let sum = 0
 
     const cancelOrderHandler = () => {
-        dispatch(cancelOrderAC())
-        navigate('/')
+        navigate('/order')
     }
 
     const paymentHandler = () => {
@@ -43,8 +42,8 @@ export const ReviewScreen = () => {
                 <p>Total: {sum} руб.</p>
             </div>
             <div className={r.reviewButtons}>
-                <button className={s.cancelButton} onClick={cancelOrderHandler}>Cancel</button>
-                <button className={s.payButton} onClick={paymentHandler}>Payment</button>
+                <button className={s.cancelButton} onClick={cancelOrderHandler}>НАЗАД</button>
+                <button className={s.payButton} onClick={paymentHandler}>ОПЛАТИТЬ</button>
             </div>
         </div>
     );
