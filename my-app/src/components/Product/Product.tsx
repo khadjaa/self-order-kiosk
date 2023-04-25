@@ -1,15 +1,18 @@
 import React from "react";
 import s from './Product.module.css'
 import {useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import {shallowEqual, useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../../store/store";
 import {addProductAC, changeCompoundAC, ProductsType} from "../../store/orderInfoReducer";
 
 export const Product = () => {
 
-    const product = useSelector<AppStoreType, ProductsType>(state => state.info.order.product)
+    const product = useSelector<AppStoreType, ProductsType>(state => state.info.order.product, shallowEqual)
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    console.log(product)
 
     const addProductHandler = () => {
         dispatch(addProductAC(product.id - 1))
@@ -28,7 +31,7 @@ export const Product = () => {
                 {
                     product.compound.map(el => {
                         return (
-                            <li>
+                            <li key={el.id}>
                                 <span>{el.name}</span>
                                 <input
                                     type="checkbox"

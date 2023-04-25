@@ -129,24 +129,30 @@ export const orderInfoReducer = (state: any = initialState, action: ActionsTypes
                 }
             }
         }
+
         case 'CHANGE-COMPOUND' : {
-            debugger
+            const newCompound = state.order.product.compound
+                .map((comp: CompoundType) => {
+                    if (comp.id === action.payload.idCompound) {
+                        return {...comp, isDone: action.payload.newIsDone}
+                    } else {
+                        return comp
+                    }
+                })
+            const newProducts = state.order.products.
+                map((prod: ProductsType) => prod.id === action.payload.idProduct
+                ? {...prod, compound: state.order.products[action.payload.idProduct].compound
+                        .map((comp: CompoundType) => comp.id === action.payload.idCompound
+                        ? {...comp, isDone: action.payload.newIsDone}
+                        : comp)}
+                : prod)
             return {
                 ...state,
                 order: {
                     ...state.order,
-                    products: state.order.products
-                        .map((el: ProductsType) => el.id === action.payload.idProduct
-                            ? {
-                                ...el, compound: state.order.products[action.payload.idProduct].compound
-                                    .map((comp: CompoundType) => comp.id === action.payload.idCompound
-                                        ? {...comp, isDone: action.payload.newIsDone}
-                                        : comp)
-
-                            }
-                            : el
-                        )
-                }
+                    products: newProducts,
+                    product: {...state.order.product, compound: newCompound},
+                },
             }
         }
         default:

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import s from './OrderScreen.module.css'
 import {useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import {shallowEqual, useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../../store/store";
 import {cancelOrderAC, CategoryType, chooseProductAC, ProductsType} from "../../store/orderInfoReducer";
 
@@ -10,8 +10,9 @@ export const OrderScreen = () => {
     const categories = useSelector<AppStoreType, CategoryType[]>(state => state.info.order.categories)
     const products = useSelector<AppStoreType, ProductsType[]>(state => state.info.order.products)
     const orderType = useSelector((state: AppStoreType) => state.info.order.orderType)
-    const orderItems = useSelector<AppStoreType, ProductsType[]>(state => state.info.order.orderItems)
+    const orderItems = useSelector<AppStoreType, ProductsType[]>(state => state.info.order.orderItems, shallowEqual)
 
+    console.log(orderItems)
     const dispatch = useDispatch()
 
     const [categoryDish, setCategoryDish] = useState('all')
