@@ -3,12 +3,13 @@ import {useNavigate} from "react-router-dom";
 import ok from '../../images/Ok.png'
 import no from '../../images/No.png'
 import React from "react";
+import s from './PopupWindow.module.css'
 
 const Popup = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
@@ -18,8 +19,13 @@ const Popup = styled.div`
 
 const PopupContent = styled.div`
   background-color: #fff;
+  width: 600px;
   padding: 20px;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 type PopupWindowPropsType = {
@@ -36,7 +42,7 @@ export const PopupWindow: React.FC<PopupWindowPropsType> = ({isOpen, onClose, pa
     setTimeout(() => {
         onClose()
         // navigate('/')
-    }, 5000)
+    }, 10000)
 
     return (
         <>
@@ -46,7 +52,7 @@ export const PopupWindow: React.FC<PopupWindowPropsType> = ({isOpen, onClose, pa
                         paymentStatus
                             ? <PopupContent>
                                 <img src={ok} alt="ok"/>
-                                <p>НОМЕР ВАШЕГО ЗАКАЗА 2134</p>
+                                <p className={s.orderNumber}>2134</p>
                                 <p>СФОТОГРАЙФИРУЙТЕ ИЛИ ЗАПОМНИТЕ НОМЕР ЗАКАЗА</p>
                             </PopupContent>
                             : <PopupContent>

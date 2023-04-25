@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {shallowEqual, useSelector} from "react-redux";
 import {AppStoreType} from "../../store/store";
 import {ProductsType} from "../../store/orderInfoReducer";
-import {PopupWindow} from "./PopupWindow";
+import {PopupWindow} from "../PopupWindow/PopupWindow";
 import {useNavigate} from "react-router-dom";
 
 const PaymentPageWrapper = styled.div`
@@ -53,7 +53,7 @@ export const PaymentScreen = () => {
     let sum = 0
     const totalPrice = orderItems.map(el => sum += el.price)
 
-    const [paymentStatus, setPaymentStatus] = useState(false)
+    const [paymentStatus, setPaymentStatus] = useState(true)
     const [isOpen, setIsOpen] = useState(false);
 
     const handleOpenPopup = () => {

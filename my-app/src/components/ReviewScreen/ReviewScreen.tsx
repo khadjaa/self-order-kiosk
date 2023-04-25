@@ -39,7 +39,7 @@ export const ReviewScreen = () => {
                 })}
             </div>
             <div>
-                <p>Total: {sum} руб.</p>
+                <p>К ОПЛАТЕ: {sum} руб.</p>
             </div>
             <div className={r.reviewButtons}>
                 <button className={s.cancelButton} onClick={cancelOrderHandler}>НАЗАД</button>
