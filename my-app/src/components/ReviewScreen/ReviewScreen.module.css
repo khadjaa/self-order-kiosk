@@ -1,0 +1,32 @@
+.review {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #282c34;
+}
+
+.review p {
+    color: #cccccc;
+    font-size: 50px;
+}
+
+.reviewCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 950px;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    transition: box-shadow 0.3s ease;
+    margin: 43px;
+    padding: 0 40px 0 40px;
+}
+
+.reviewButtons{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin: 30px;
+}
