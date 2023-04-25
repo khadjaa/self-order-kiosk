@@ -5,6 +5,7 @@ import {Route, Routes} from "react-router-dom";
 import ChooseScreen from "./components/ChooseScreen/ChooseScreen";
 import {OrderScreen} from "./components/OrderScreen/OrderScreen";
 import {Product} from "./components/Product/Product";
+import {ReviewScreen} from "./components/ReviewScreen/ReviewScreen";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
               <Route path={'/choose'} element={<ChooseScreen/>}></Route>
               <Route path={'/order'} element={<OrderScreen/>}></Route>
               <Route path={'/product'} element={<Product/>}/>
+              <Route path={'/review'} element={<ReviewScreen/>}/>
           </Routes>
       </div>
   );
