@@ -1,4 +1,5 @@
 import img from "../images/french-fries.svg";
+import {initialState} from "./state";
 
 export type CategoryType = {
     id: string, name: string, image: string
@@ -25,70 +26,6 @@ export type OrderStateType = {
         categories: CategoryType[],
         products: ProductsType[]
     }
-}
-
-const initialState = {
-    order: {
-        orderType: '',
-        orderItems: [],
-        categories: [
-            {id: 1, name: 'Бургеры', image: img},
-            {id: 2, name: 'Пиццы', image: img},
-            {id: 3, name: 'Салаты', image: img},
-            {id: 4, name: 'Супы', image: img},
-        ],
-        products: [
-            {
-                id: 1,
-                categoryName: 'Бургеры',
-                name: 'Бургер',
-                description: 'Сочный бургер с говяжьей котлетой, луком, помидорами и салатом',
-                price: 250,
-                image: 'https://via.placeholder.com/150',
-                compound: [
-                    {id: 1, name: 'Bulka', isDone: true},
-                    {id: 2, name: 'Souse', isDone: true},
-                ]
-            },
-            {
-                id: 2,
-                categoryName: 'Пиццы',
-                name: 'Пицца',
-                description: 'Аппетитная пицца с ароматным томатным соусом, сыром и разнообразными топпингами',
-                price: 350,
-                image: 'https://via.placeholder.com/150',
-                compound: [
-                    {id: 1, name: 'Testo', isDone: true},
-                    {id: 2, name: 'Souse', isDone: true},
-                ]
-            },
-            {
-                id: 3,
-                categoryName: 'Салаты',
-                name: 'Салат',
-                description: 'Свежий салат с миксом листьев, овощами, сыром и заправкой на выбор',
-                price: 150,
-                image: 'https://via.placeholder.com/150',
-                compound: [
-                    {id: 1, name: 'Onion', isDone: true},
-                    {id: 2, name: 'Souse', isDone: true},
-                ]
-            },
-            {
-                id: 4,
-                name: 'Суп',
-                categoryName: 'Супы',
-                description: 'Ароматный суп с куриной грудкой, овощами и крупой на выбор',
-                price: 200,
-                image: 'https://via.placeholder.com/150',
-                compound: [
-                    {id: 1, name: 'Bulon', isDone: true},
-                    {id: 2, name: 'Souse', isDone: true},
-                ]
-            },
-        ],
-        product: {}
-    },
 }
 
 type ActionsTypes = chooseOrderType

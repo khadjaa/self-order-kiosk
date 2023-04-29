@@ -29,14 +29,14 @@ export const OrderScreen = () => {
 
     let filteredArray = products
 
-    if (filter === 'Бургеры') {
-        filteredArray = products.filter(el => el.categoryName === 'Бургеры')
+    if (filter === 'Реал-Кебаб') {
+        filteredArray = products.filter(el => el.categoryName === 'Реал-Кебаб')
     }
-    if (filter === 'Пиццы') {
-        filteredArray = products.filter(el => el.categoryName === 'Пиццы')
+    if (filter === 'Гранд-Кебаб') {
+        filteredArray = products.filter(el => el.categoryName === 'Гранд-Кебаб')
     }
-    if (filter === 'Салаты') {
-        filteredArray = products.filter(el => el.categoryName === 'Салаты')
+    if (filter === 'Закуски') {
+        filteredArray = products.filter(el => el.categoryName === 'Закуски')
     }
     if (filter === 'Супы') {
         filteredArray = products.filter(el => el.categoryName === 'Супы')
