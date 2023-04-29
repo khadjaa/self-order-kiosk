@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallowEqual, useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../../store/store";
-import {cancelOrderAC, ProductsType} from "../../store/orderInfoReducer";
+import {cancelOrderAC, deleteProductAC, ProductsType} from "../../store/orderInfoReducer";
 import s from "../OrderScreen/OrderScreen.module.css";
 import r from './ReviewScreen.module.css'
 import {useNavigate} from "react-router-dom";
@@ -12,6 +12,8 @@ export const ReviewScreen = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
+    console.log(orderItems)
+
     let sum = 0
 
     const cancelOrderHandler = () => {
@@ -20,6 +22,10 @@ export const ReviewScreen = () => {
 
     const paymentHandler = () => {
         navigate('/payment')
+    }
+
+    const deleteProductHandler = (id: number) => {
+        dispatch(deleteProductAC(id))
     }
 
     return (
@@ -34,6 +40,7 @@ export const ReviewScreen = () => {
                         >
                             <h1>{el.name}</h1>
                             <p>{el.price} руб.</p>
+                            <button onClick={() => deleteProductHandler(el.id)}>Delete</button>
                         </div>
                     )
                 })}
