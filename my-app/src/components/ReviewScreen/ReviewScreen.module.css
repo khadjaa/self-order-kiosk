@@ -26,7 +26,11 @@
 
 .reviewButtons{
     display: flex;
-    width: 100%;
     justify-content: space-around;
     margin: 30px;
+    width: 85%;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
 }

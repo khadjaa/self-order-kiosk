@@ -11,8 +11,10 @@
 
 .productImage {
     width: 80%;
-    height: 550px;
+    height: 70%;
     overflow: hidden;
+    box-shadow: 0 2px 4px rgba(10, 10, 10, 0.3);
+    border-radius: 30px;
 }
 
 .productImage img {
@@ -28,10 +30,13 @@
 
 .orderButtons {
     display: flex;
-    width: 100%;
+    width: 95%;
     justify-content: space-around;
     margin: 30px;
-    background-color: #282c34;
+    background-color: #fff;
+    border-radius: 40px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
 }
 
 .payButton,

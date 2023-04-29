@@ -6,6 +6,7 @@ import homeImg from '../images/home.svg'
 import soupImg from '../images/soup.svg'
 import ketchupImg from '../images/ketchup.svg'
 import alcoholImg from '../images/beer.svg'
+import realKurImg from '../images/real_k.png'
 
 
 export const initialState = {
@@ -18,8 +19,7 @@ export const initialState = {
             {id: 3, name: 'Реал-Кебаб', image: kebabImg},
             {id: 4, name: 'Закуски', image: img},
             {id: 5, name: 'Напитки', image: lemonadeImg},
-            {id: 6, name: 'Соусы', image: ketchupImg},
-            {id: 7, name: 'Алкоголь', image: alcoholImg},
+            {id: 6, name: 'Алкоголь', image: alcoholImg},
         ],
         products: [
             {
@@ -28,7 +28,7 @@ export const initialState = {
                 name: 'Реал-Кебаб',
                 description: 'Традиционная подача в свеже испеченной лепёшке',
                 price: 250,
-                image: 'https://via.placeholder.com/150',
+                image: realKurImg,
                 compound: [
                     {id: 1, name: 'Bulka', isDone: true},
                     {id: 2, name: 'Souse', isDone: true},

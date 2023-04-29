@@ -45,6 +45,7 @@
     border-radius: 10px;
     margin-bottom: 20px;
     object-fit: cover;
+    box-shadow: 0 2px 4px rgba(10, 10, 10, 0.3);
 }
 
 .card h3 {

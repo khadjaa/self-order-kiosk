@@ -53,7 +53,7 @@ export const PaymentScreen = () => {
     let sum = 0
     const totalPrice = orderItems.map(el => sum += el.price)
 
-    const [paymentStatus, setPaymentStatus] = useState(true)
+    const [paymentStatus, setPaymentStatus] = useState(false)
     const [isOpen, setIsOpen] = useState(false);
 
     const handleOpenPopup = () => {
