@@ -7,6 +7,8 @@ import soupImg from '../images/soup.svg'
 import ketchupImg from '../images/ketchup.svg'
 import alcoholImg from '../images/beer.svg'
 import realKurImg from '../images/real_k.png'
+import grandImg from '../images/grand_g.png'
+
 
 
 export const initialState = {
@@ -46,7 +48,7 @@ export const initialState = {
                 name: 'Гранд-Кебаб',
                 description: 'Подача на тарелке для самых голодных',
                 price: 350,
-                image: 'https://via.placeholder.com/150',
+                image: grandImg,
                 compound: [
                     {id: 1, name: 'Testo', isDone: true},
                     {id: 2, name: 'Souse', isDone: true},

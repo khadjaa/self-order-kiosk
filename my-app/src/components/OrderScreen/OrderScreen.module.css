@@ -40,7 +40,7 @@
 }
 
 .card img {
-    width: 100%;
+    width: 99%;
     height: 200px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -113,7 +113,6 @@
     border-top: 1px solid #eeeeee;
     padding-top: 10px;
 }
-
 
 .orderButtons {
     display: flex;

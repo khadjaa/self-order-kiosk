@@ -31,7 +31,7 @@ export const ReviewScreen = () => {
     return (
         <div className={r.review}>
             <p>ВАШ ЗАКАЗ</p>
-            <div>
+            <div className={s.cardReview}>
                 {orderItems.map(el => {
                     sum += el.price
                     return (
@@ -40,7 +40,9 @@ export const ReviewScreen = () => {
                         >
                             <h1>{el.name}</h1>
                             <p>{el.price} руб.</p>
-                            <button onClick={() => deleteProductHandler(el.id)}>Delete</button>
+                            <button
+                                className={r.deleteButton}
+                                onClick={() => deleteProductHandler(el.id)}>Удалить</button>
                         </div>
                     )
                 })}
