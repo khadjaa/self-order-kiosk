@@ -30,8 +30,14 @@ export const initialState = {
                 price: 250,
                 image: realKurImg,
                 compound: [
-                    {id: 1, name: 'Bulka', isDone: true},
-                    {id: 2, name: 'Souse', isDone: true},
+                    {id: 1, name: 'Кебаб куриный', isDone: true},
+                    {id: 2, name: 'Салат айсберг', isDone: true},
+                    {id: 3, name: 'Пекинская капустаг', isDone: true},
+                    {id: 4, name: 'Морковь по-корейски', isDone: true},
+                    {id: 5, name: 'Лук репчатый', isDone: true},
+                    {id: 6, name: 'Белый соус', isDone: true},
+                    {id: 7, name: 'Красный соус', isDone: true},
+                    {id: 8, name: 'Лепешка', isDone: true},
                 ]
             },
             {

@@ -12,8 +12,6 @@ export const Product = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    console.log(product)
-
     const addProductHandler = () => {
         dispatch(addProductAC(product.id - 1))
         navigate('/order')
@@ -26,18 +24,18 @@ export const Product = () => {
             </div>
             <div className={s.productDetails}>
                 <h3>{product.name}</h3>
-                <p>{product.description}</p>
-                <p>Состав</p>
+                <p>Состав:</p>
                 {
                     product.compound.map(el => {
                         return (
-                            <li key={el.id}>
-                                <span>{el.name}</span>
+                            <li key={el.id} className={s.prod}>
                                 <input
-                                    type="checkbox"
+                                    type="radio"
                                     checked={el.isDone}
+                                    className={s.checkBox}
                                     onClick={() => dispatch(changeCompoundAC(product.id, el.id, !el.isDone))}
                                 />
+                                <span>{el.name}</span>
                             </li>
                         )
                     })
@@ -58,4 +56,5 @@ export const Product = () => {
         </div>
     );
 }
+
 

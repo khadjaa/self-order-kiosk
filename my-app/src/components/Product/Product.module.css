@@ -3,7 +3,6 @@
     flex-direction: column;
     align-items: center;
     height: 100%;
-    border: 1px solid #ccc;
     padding: 10px;
     cursor: pointer;
     background-color: #282c34;
@@ -13,7 +12,7 @@
     width: 80%;
     height: 70%;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(10, 10, 10, 0.3);
+    box-shadow: 0 2px 4px rgba(10, 10, 10, 1);
     border-radius: 30px;
 }
 
@@ -22,10 +21,25 @@
 }
 
 .productDetails {
+    display: flex;
+    flex-direction: column;
+    width: 78%;
     margin: 40px;
     color: #cccccc;
     font-size: 40px;
-    background-color: tomato;
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(10, 10, 10, 2);
+}
+
+.productDetails h3 {
+    text-align: center;
+}
+
+.prod {
+    display: flex;
+    align-items: center;
+    margin: 15px;
 }
 
 .orderButtons {
@@ -56,4 +70,14 @@
 
 .cancelButton {
     background-color: #f44336; /* красный цвет кнопки "Отменить заказ" */
+}
+
+.checkBox {
+    height: 30px;
+    width: 30px;
+    margin: 10px 10px 4px 10px;
+}
+
+li {
+    list-style-type: none;
 }
