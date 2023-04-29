@@ -61,13 +61,19 @@ export const initialState = {
                 description: 'Свежий салат с миксом листьев, овощами, сыром и заправкой на выбор',
                 price: 150,
                 image: 'https://via.placeholder.com/150',
-                compound: [
-                    {id: 1, name: 'Onion', isDone: true},
-                    {id: 2, name: 'Souse', isDone: true},
-                ]
+                compound: []
             },
             {
                 id: 4,
+                categoryName: 'Закуски',
+                name: 'Картофель фри',
+                description: 'Обжаренный по-бельгийски',
+                price: 150,
+                image: 'https://via.placeholder.com/150',
+                compound: []
+            },
+            {
+                id: 5,
                 name: 'Суп',
                 categoryName: 'Супы',
                 description: 'Ароматный суп с куриной грудкой, овощами и крупой на выбор',
