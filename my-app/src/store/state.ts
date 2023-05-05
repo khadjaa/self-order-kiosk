@@ -9,8 +9,6 @@ import alcoholImg from '../images/beer.svg'
 import realKurImg from '../images/real_k.png'
 import grandImg from '../images/grand_g.png'
 
-
-
 export const initialState = {
     order: {
         orderType: '',
