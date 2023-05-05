@@ -2,12 +2,13 @@ import img from "../images/french-fries.svg";
 import kebabImg from '../images/kebab.svg'
 import comboImg from '../images/combo.svg'
 import lemonadeImg from '../images/lemonade.svg'
-import homeImg from '../images/home.svg'
 import soupImg from '../images/soup.svg'
-import ketchupImg from '../images/ketchup.svg'
 import alcoholImg from '../images/beer.svg'
 import realKurImg from '../images/real_k.png'
 import grandImg from '../images/grand_g.png'
+import falafelImg from '../images/falafel.png'
+import friesImg from '../images/fries_.png'
+import ApaImg from '../images/APA.png'
 
 export const initialState = {
     order: {
@@ -55,10 +56,10 @@ export const initialState = {
             {
                 id: 3,
                 categoryName: 'Закуски',
-                name: 'Салат',
+                name: 'Фалафель',
                 description: 'Свежий салат с миксом листьев, овощами, сыром и заправкой на выбор',
                 price: 150,
-                image: 'https://via.placeholder.com/150',
+                image: falafelImg,
                 compound: []
             },
             {
@@ -67,7 +68,7 @@ export const initialState = {
                 name: 'Картофель фри',
                 description: 'Обжаренный по-бельгийски',
                 price: 150,
-                image: 'https://via.placeholder.com/150',
+                image: friesImg,
                 compound: []
             },
             {
@@ -81,6 +82,15 @@ export const initialState = {
                     {id: 1, name: 'Bulon', isDone: true},
                     {id: 2, name: 'Souse', isDone: true},
                 ]
+            },
+            {
+                id: 6,
+                name: 'Пиво АПА',
+                categoryName: 'Алкоголь',
+                description: 'На выбор',
+                price: 200,
+                image: ApaImg,
+                compound: []
             },
         ],
         product: {}
