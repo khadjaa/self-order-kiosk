@@ -9,6 +9,7 @@ import grandImg from '../images/grand_g.png'
 import falafelImg from '../images/falafel.png'
 import friesImg from '../images/fries_.png'
 import ApaImg from '../images/APA.png'
+import LiptonImg from '../images/lipton_z.png'
 
 export const initialState = {
     order: {
@@ -90,6 +91,15 @@ export const initialState = {
                 description: 'На выбор',
                 price: 200,
                 image: ApaImg,
+                compound: []
+            },
+            {
+                id: 7,
+                name: 'Lipton',
+                categoryName: 'Напитки',
+                description: 'На выбор',
+                price: 200,
+                image: LiptonImg,
                 compound: []
             },
         ],

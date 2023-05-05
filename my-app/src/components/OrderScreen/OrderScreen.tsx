@@ -41,6 +41,12 @@ export const OrderScreen = () => {
     if (filter === 'Супы') {
         filteredArray = products.filter(el => el.categoryName === 'Супы')
     }
+    if (filter === 'Алкоголь') {
+        filteredArray = products.filter(el => el.categoryName === 'Алкоголь')
+    }
+    if (filter === 'Напитки') {
+        filteredArray = products.filter(el => el.categoryName === 'Напитки')
+    }
 
     let sum = 0
 
