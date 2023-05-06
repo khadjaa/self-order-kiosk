@@ -25,7 +25,7 @@ export const initialState = {
         ],
         products: [
             {
-                id: 1,
+                id: 0,
                 categoryName: 'Реал-Кебаб',
                 name: 'Реал-Кебаб',
                 description: 'Традиционная подача в свеже испеченной лепёшке',
@@ -43,7 +43,7 @@ export const initialState = {
                 ]
             },
             {
-                id: 2,
+                id: 1,
                 categoryName: 'Гранд-Кебаб',
                 name: 'Гранд-Кебаб',
                 description: 'Подача на тарелке для самых голодных',
@@ -55,7 +55,7 @@ export const initialState = {
                 ]
             },
             {
-                id: 3,
+                id: 2,
                 categoryName: 'Закуски',
                 name: 'Фалафель',
                 description: 'Свежий салат с миксом листьев, овощами, сыром и заправкой на выбор',
@@ -64,7 +64,7 @@ export const initialState = {
                 compound: []
             },
             {
-                id: 4,
+                id: 3,
                 categoryName: 'Закуски',
                 name: 'Картофель фри',
                 description: 'Обжаренный по-бельгийски',
@@ -73,7 +73,7 @@ export const initialState = {
                 compound: []
             },
             {
-                id: 5,
+                id: 4,
                 name: 'Суп',
                 categoryName: 'Супы',
                 description: 'Ароматный суп с куриной грудкой, овощами и крупой на выбор',
@@ -85,7 +85,7 @@ export const initialState = {
                 ]
             },
             {
-                id: 6,
+                id: 5,
                 name: 'Пиво АПА',
                 categoryName: 'Алкоголь',
                 description: 'На выбор',
@@ -94,7 +94,7 @@ export const initialState = {
                 compound: []
             },
             {
-                id: 7,
+                id: 6,
                 name: 'Lipton',
                 categoryName: 'Напитки',
                 description: 'На выбор',

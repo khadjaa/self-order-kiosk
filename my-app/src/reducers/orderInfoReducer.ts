@@ -47,7 +47,7 @@ export const orderInfoReducer = (state: any = initialState, action: ActionsTypes
         case 'CHOOSE-PRODUCT': {
             return {
                 ...state,
-                order: {...state.order, product: state.order.products[action.payload.id - 1]}
+                order: {...state.order, product: state.order.products[action.payload.id]}
             }
         }
         case 'ADD-PRODUCT' : {
@@ -81,7 +81,7 @@ export const orderInfoReducer = (state: any = initialState, action: ActionsTypes
             const newProducts = state.order.products
                 .map((prod: ProductsType) => prod.id === action.payload.idProduct
                     ? {
-                        ...prod, compound: state.order.products[action.payload.idProduct - 1].compound
+                        ...prod, compound: state.order.products[action.payload.idProduct].compound
                             .map((comp: CompoundType) => comp.id === action.payload.idCompound
                                 ? {...comp, isDone: action.payload.newIsDone}
                                 : comp)
