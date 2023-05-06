@@ -12,13 +12,14 @@ export const OrderList = () => {
     return (
         <ul>
             {orderList.map((subArray: any, index: any) => (
-                <li key={index}>
+                <li key={index} className={s.borderLi}>
+                    <p>#2134</p>
                     {subArray.map((item: any) => (
-                        <div key={item.id} className={s.borderLi}>
-                            <p>#2134</p>
+                        <div key={item.id} >
                             <p>{item.name}</p>
                         </div>
                     ))}
+                    <button onClick={() => alert(index)}>DELETE</button>
                 </li>
             ))}
         </ul>

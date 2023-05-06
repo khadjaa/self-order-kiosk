@@ -67,18 +67,19 @@ export const PaymentScreen = () => {
     };
 
     if (paymentStatus) {
-        dispatch(addOrderListAC([
-            {
-                id: 5,
-                name: 'Пиво АПА',
-                categoryName: 'Алкоголь',
-                description: 'На выбор',
-                price: 200,
-                image: ApaImg,
-                compound: []
-            },]))
-
+        dispatch(addOrderListAC(orderItems))
     }
+
+//[
+//             {
+//                 id: 5,
+//                 name: 'Пиво АПА',
+//                 categoryName: 'Алкоголь',
+//                 description: 'На выбор',
+//                 price: 200,
+//                 image: ApaImg,
+//                 compound: []
+//             },])
 
     setTimeout( () => {
         navigate('/cook')
