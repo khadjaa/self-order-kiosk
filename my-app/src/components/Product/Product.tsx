@@ -13,7 +13,7 @@ export const Product = () => {
     const navigate = useNavigate()
 
     const addProductHandler = () => {
-        dispatch(addProductAC(product.id - 1))
+        dispatch(addProductAC(product.id))
         navigate('/order')
     }
 

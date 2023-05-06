@@ -96,7 +96,6 @@ export const orderInfoReducer = (state: any = initialState, action: ActionsTypes
                 },
             }
         }
-
         case 'DELETE-PRODUCT' : {
             return {
                 ...state,
