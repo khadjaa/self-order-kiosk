@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styled from "styled-components";
 import {shallowEqual, useSelector} from "react-redux";
 import {AppStoreType} from "../../store/store";
-import {ProductsType} from "../../store/orderInfoReducer";
+import {ProductsType} from "../../reducers/orderInfoReducer";
 import {PopupWindow} from "../PopupWindow/PopupWindow";
 import {useNavigate} from "react-router-dom";
 

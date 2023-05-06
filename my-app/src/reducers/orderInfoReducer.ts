@@ -1,5 +1,5 @@
 import img from "../images/french-fries.svg";
-import {initialState} from "./state";
+import {initialState} from "../store/state";
 
 export type CategoryType = {
     id: string, name: string, image: string
@@ -34,6 +34,7 @@ type ActionsTypes = chooseOrderType
     | cancelOrderType
     | changeCompoundType
     | deleteProduct
+    | changeFilter
 
 export const orderInfoReducer = (state: any = initialState, action: ActionsTypes) => {
     switch (action.type) {
@@ -97,11 +98,20 @@ export const orderInfoReducer = (state: any = initialState, action: ActionsTypes
         }
 
         case 'DELETE-PRODUCT' : {
-            debugger
             return {
                 ...state,
-                order : {
+                order: {
                     orderItems: state.order.orderItems.filter((pr: ProductsType) => pr.id !== action.payload.idProduct)
+                }
+            }
+        }
+        case "CHANGE-FILTER": {
+            // debugger
+            return {
+                ...state,
+                order: {
+                    ...state.order,
+                    products: state.order.products.filter((pr: ProductsType) => pr.categoryName === action.payload.categoryName)
                 }
             }
         }
@@ -136,7 +146,6 @@ export const addProductAC = (id: number) => {
     } as const
 }
 
-
 type cancelOrderType = ReturnType<typeof cancelOrderAC>
 export const cancelOrderAC = () => {
     return {
@@ -157,5 +166,13 @@ export const deleteProductAC = (idProduct: number) => {
     return {
         type: 'DELETE-PRODUCT',
         payload: {idProduct}
+    } as const
+}
+
+type changeFilter = ReturnType<typeof changeFilterAC>
+export const changeFilterAC = (categoryName: string) => {
+    return {
+        type: 'CHANGE-FILTER',
+        payload: {categoryName}
     } as const
 }

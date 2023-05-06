@@ -1,6 +1,6 @@
 import React from 'react';
 import {useDispatch} from "react-redux";
-import {chooseOrderTypeAC} from "../../store/orderInfoReducer";
+import {chooseOrderTypeAC} from "../../reducers/orderInfoReducer";
 import logo from "../../images/Logo_IV.png";
 import logoSpb from '../../images/logo_sbp.png'
 import avaSoboy from '../../images/soboy.png'

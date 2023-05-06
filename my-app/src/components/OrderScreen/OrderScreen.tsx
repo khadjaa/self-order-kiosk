@@ -3,13 +3,17 @@ import s from './OrderScreen.module.css'
 import {useNavigate} from "react-router-dom";
 import {shallowEqual, useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../../store/store";
-import {cancelOrderAC, CategoryType, chooseProductAC, ProductsType} from "../../store/orderInfoReducer";
+import {cancelOrderAC, CategoryType, chooseProductAC, ProductsType} from "../../reducers/orderInfoReducer";
 
 export const OrderScreen = () => {
     const categories = useSelector<AppStoreType, CategoryType[]>(state => state.info.order.categories)
     const products = useSelector<AppStoreType, ProductsType[]>(state => state.info.order.products)
     const orderType = useSelector((state: AppStoreType) => state.info.order.orderType)
     const orderItems = useSelector<AppStoreType, ProductsType[]>(state => state.info.order.orderItems, shallowEqual)
+
+    console.log('products', products)
+    console.log('categories', categories)
+    console.log('orderType', orderType)
 
     const dispatch = useDispatch()
 
@@ -54,10 +58,11 @@ export const OrderScreen = () => {
         <div className={s.menu}>
             <div className={s.categories}>
                 {categories.map(category => {
-
                     const changeFilterHandler = () => {
                         setCategoryDish(category.name)
                         setFilter(category.name)
+                        // dispatch(changeFilterAC(category.name))
+                        console.log('catName',category.name)
                     }
 
                     return (

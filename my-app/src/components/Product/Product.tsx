@@ -3,7 +3,7 @@ import s from './Product.module.css'
 import {useNavigate} from "react-router-dom";
 import {shallowEqual, useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../../store/store";
-import {addProductAC, changeCompoundAC, ProductsType} from "../../store/orderInfoReducer";
+import {addProductAC, changeCompoundAC, ProductsType} from "../../reducers/orderInfoReducer";
 
 export const Product = () => {
 

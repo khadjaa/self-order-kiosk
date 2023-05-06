@@ -1,5 +1,5 @@
 import {combineReducers, legacy_createStore} from 'redux';
-import {orderInfoReducer} from "./orderInfoReducer";
+import {orderInfoReducer} from "../reducers/orderInfoReducer";
 
 // Объединяем редьюсеры в один корневой редьюсер
 const rootReducer = combineReducers({

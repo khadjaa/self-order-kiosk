@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallowEqual, useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../../store/store";
-import {cancelOrderAC, deleteProductAC, ProductsType} from "../../store/orderInfoReducer";
+import {cancelOrderAC, deleteProductAC, ProductsType} from "../../reducers/orderInfoReducer";
 import s from "../OrderScreen/OrderScreen.module.css";
 import r from './ReviewScreen.module.css'
 import {useNavigate} from "react-router-dom";
