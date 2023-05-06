@@ -6,3 +6,14 @@
     text-align: center;
     font-size: 25px;
 }
+
+.borderProd {
+    border: solid 1px gold;
+    margin: 10px;
+}
+
+h6 {
+    padding: 0;
+    margin: 0 0 0 30px;
+    text-align: left;
+}
