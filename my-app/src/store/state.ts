@@ -103,6 +103,19 @@ export const initialState = {
                 compound: []
             },
         ],
-        product: {}
+        product: {},
+        orderList: [
+            [
+                {
+                    id: 6,
+                    name: 'Lipton',
+                    categoryName: 'Напитки',
+                    description: 'На выбор',
+                    price: 200,
+                    image: LiptonImg,
+                    compound: []
+                }
+            ]
+        ]
     },
 }

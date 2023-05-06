@@ -7,6 +7,7 @@ import {OrderScreen} from "./components/OrderScreen/OrderScreen";
 import {Product} from "./components/Product/Product";
 import {ReviewScreen} from "./components/ReviewScreen/ReviewScreen";
 import {PaymentScreen} from "./components/PaymentScreen/PaymentScreen";
+import {OrderList} from "./components/OrderList/OrderList";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               <Route path={'/product'} element={<Product/>}/>
               <Route path={'/review'} element={<ReviewScreen/>}/>
               <Route path={'/payment'} element={<PaymentScreen/>}></Route>
+              <Route path={'/cook'} element={<OrderList/>}></Route>
           </Routes>
       </div>
   );

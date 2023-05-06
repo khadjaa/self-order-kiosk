@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
-import {shallowEqual, useSelector} from "react-redux";
+import {shallowEqual, useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../../store/store";
-import {ProductsType} from "../../reducers/orderInfoReducer";
+import {addOrderListAC, ProductsType} from "../../reducers/orderInfoReducer";
 import {PopupWindow} from "../PopupWindow/PopupWindow";
 import {useNavigate} from "react-router-dom";
+import ApaImg from "../../images/APA.png";
 
 const PaymentPageWrapper = styled.div`
   display: flex;
@@ -49,11 +50,12 @@ export const PaymentScreen = () => {
 
     const orderItems = useSelector<AppStoreType, ProductsType[]>(state => state.info.order.orderItems, shallowEqual)
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     let sum = 0
     const totalPrice = orderItems.map(el => sum += el.price)
 
-    const [paymentStatus, setPaymentStatus] = useState(false)
+    const [paymentStatus, setPaymentStatus] = useState(true)
     const [isOpen, setIsOpen] = useState(false);
 
     const handleOpenPopup = () => {
@@ -64,9 +66,23 @@ export const PaymentScreen = () => {
         setIsOpen(false);
     };
 
-    // setTimeout( () => {
-    //     navigate('/')
-    // }, 45000)
+    if (paymentStatus) {
+        dispatch(addOrderListAC([
+            {
+                id: 5,
+                name: 'Пиво АПА',
+                categoryName: 'Алкоголь',
+                description: 'На выбор',
+                price: 200,
+                image: ApaImg,
+                compound: []
+            },]))
+
+    }
+
+    setTimeout( () => {
+        navigate('/cook')
+    }, 3000)
 
     return (
         <PaymentPageWrapper>

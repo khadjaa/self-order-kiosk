@@ -27,6 +27,8 @@ export type OrderStateType = {
     }
 }
 
+export type OrderListType = {}
+
 type ActionsTypes = chooseOrderType
     | chooseProductType
     | addProductType
@@ -34,6 +36,7 @@ type ActionsTypes = chooseOrderType
     | changeCompoundType
     | deleteProduct
     | changeFilter
+    | AddOrderList
 
 export const orderInfoReducer = (state: any = initialState, action: ActionsTypes) => {
     switch (action.type) {
@@ -50,6 +53,11 @@ export const orderInfoReducer = (state: any = initialState, action: ActionsTypes
             }
         }
         case 'ADD-PRODUCT' : {
+            const itemsPrice = state.order.orderItems.reduce(
+                (a: any, c: any) => a + c.price * c.price,
+                0
+            );
+            console.log(itemsPrice)
             return {
                 ...state,
                 order: {
@@ -113,6 +121,15 @@ export const orderInfoReducer = (state: any = initialState, action: ActionsTypes
                 }
             }
         }
+        case 'ADD-ORDER-LIST' : {
+            return {
+                ...state,
+                order: {
+                    ...state.order,
+                    orderList: [...state.order.orderList, action.payload.arr]
+                }
+            }
+        }
         default:
             return state
     }
@@ -172,5 +189,13 @@ export const changeFilterAC = (categoryName: string) => {
     return {
         type: 'CHANGE-FILTER',
         payload: {categoryName}
+    } as const
+}
+
+type AddOrderList = ReturnType<typeof addOrderListAC>
+export const addOrderListAC = (arr: ProductsType[]) => {
+    return {
+        type: 'ADD-ORDER-LIST',
+        payload: {arr}
     } as const
 }

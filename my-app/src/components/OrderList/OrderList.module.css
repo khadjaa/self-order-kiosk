@@ -1,0 +1,7 @@
+.borderLi {
+    border: solid 1px green;
+    background-color: #4CAF50;
+    margin: 20px;
+    width: 20%;
+    text-align: center;
+}
