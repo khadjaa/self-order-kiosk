@@ -37,6 +37,7 @@ type ActionsTypes = chooseOrderType
     | deleteProduct
     | changeFilter
     | AddOrderList
+    | RemoveOrderList
 
 export const orderInfoReducer = (state: any = initialState, action: ActionsTypes) => {
     switch (action.type) {
@@ -130,6 +131,17 @@ export const orderInfoReducer = (state: any = initialState, action: ActionsTypes
                 }
             }
         }
+        case "REMOVE-ORDER-LIST": {
+            return {
+                ...state,
+                order: {
+                    ...state.order,
+                    orderList: state.order.orderList.filter((ord: any, index: number) => {
+                        return index !== action.payload.index;
+                    })
+                }
+            }
+        }
         default:
             return state
     }
@@ -197,5 +209,14 @@ export const addOrderListAC = (arr: ProductsType[]) => {
     return {
         type: 'ADD-ORDER-LIST',
         payload: {arr}
+    } as const
+}
+
+
+type RemoveOrderList = ReturnType<typeof RemoveOrderListAC>
+export const RemoveOrderListAC = (index: number) => {
+    return {
+        type: 'REMOVE-ORDER-LIST',
+        payload: {index}
     } as const
 }

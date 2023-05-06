@@ -2,6 +2,7 @@ import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../../store/store";
 import s from './OrderList.module.css'
+import {RemoveOrderListAC} from "../../reducers/orderInfoReducer";
 
 export const OrderList = () => {
 
@@ -19,7 +20,7 @@ export const OrderList = () => {
                             <p>{item.name}</p>
                         </div>
                     ))}
-                    <button onClick={() => alert(index)}>DELETE</button>
+                    <button onClick={() => dispatch(RemoveOrderListAC(index))}>DELETE</button>
                 </li>
             ))}
         </ul>
