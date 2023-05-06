@@ -9,6 +9,7 @@ export const OrderList = () => {
     const orderList = useSelector<AppStoreType, any>(state => state.info.order.orderList)
     console.log(orderList)
     const dispatch = useDispatch()
+
     //orderList[0][0].compound[0].isDone
     return (
         <ul>
