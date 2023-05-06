@@ -1,4 +1,3 @@
-import img from "../images/french-fries.svg";
 import {initialState} from "../store/state";
 
 export type CategoryType = {
