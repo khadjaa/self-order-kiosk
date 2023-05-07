@@ -1,15 +1,33 @@
 .borderLi {
-    border: solid 1px green;
-    background-color: #4CAF50;
-    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
     width: 20%;
     text-align: center;
     font-size: 25px;
+    margin: 15px;
+    padding: 0;
+}
+
+.number {
+    background-color: #0b55ec;
+    color: #fff;
+    padding: 20px;
+    margin-block: 0;
+}
+
+.orderType {
+    margin-block: 5px
 }
 
 .borderProd {
     border: solid 1px gold;
-    margin: 10px;
+    padding: 0;
+    background-color: #cccccc;
+}
+
+.borderProd p {
+    margin-block: 10px
 }
 
 h6 {
@@ -24,6 +42,24 @@ ul {
     margin: 0;
 }
 
-button {
-    background-color: transparent;
+.cookButtons {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.readyButton,
+.deliverButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 7px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    border-radius: 4px;
+    font-size: 20px;
+}
+
+.deliverButton {
+    background-color: #666666;
 }

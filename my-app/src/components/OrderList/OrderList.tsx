@@ -7,6 +7,7 @@ import {RemoveOrderListAC} from "../../reducers/orderInfoReducer";
 export const OrderList = () => {
 
     const orderList = useSelector<AppStoreType, any>(state => state.info.order.orderList)
+    const orderType = useSelector<AppStoreType, any>(state => state.info.order.orderType)
     console.log(orderList)
     const dispatch = useDispatch()
 
@@ -15,7 +16,8 @@ export const OrderList = () => {
         <ul>
             {orderList.map((subArray: any, index: any) => (
                 <li key={index} className={s.borderLi}>
-                    <p>#2134</p>
+                    <p className={s.number}>#2134</p>
+                    <p className={s.orderType}>ЗАКАЗ {orderType}</p>
                     {subArray.map((item: any) => (
                         <div key={item.id} className={s.borderProd}>
                             <p>{item.name}</p>
@@ -26,7 +28,10 @@ export const OrderList = () => {
                             }
                         </div>
                     ))}
-                    <button onClick={() => dispatch(RemoveOrderListAC(index))}>DELETE</button>
+                    <div className={s.cookButtons}>
+                        <button className={s.readyButton} >ГОТОВ</button>
+                        <button className={s.deliverButton} onClick={() => dispatch(RemoveOrderListAC(index))}>ОТДАН</button>
+                    </div>
                 </li>
             ))}
         </ul>
