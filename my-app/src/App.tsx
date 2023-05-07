@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import HomeScreen from "./components/HomeScreen/HomeScreen";
 import {Route, Routes} from "react-router-dom";
@@ -8,8 +8,22 @@ import {Product} from "./components/Product/Product";
 import {ReviewScreen} from "./components/ReviewScreen/ReviewScreen";
 import {PaymentScreen} from "./components/PaymentScreen/PaymentScreen";
 import {OrderList} from "./components/OrderList/OrderList";
+import axios from "axios";
 
 function App() {
+
+    const [appState, setAppState] = useState();
+
+    useEffect(() => {
+        const apiUrl = 'http://127.0.0.1:6100/habr01.json';
+        axios.get(apiUrl).then((resp) => {
+            const allPersons = resp.data;
+            setAppState(allPersons);
+        });
+    }, [setAppState]);
+
+    console.log(appState)
+
   return (
       <div className={'App'}>
           <Routes>

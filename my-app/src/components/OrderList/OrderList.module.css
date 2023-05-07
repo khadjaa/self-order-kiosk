@@ -23,3 +23,7 @@ ul {
     padding: 30px;
     margin: 0;
 }
+
+button {
+    background-color: transparent;
+}
