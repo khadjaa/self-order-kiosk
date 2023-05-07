@@ -133,6 +133,7 @@
     margin-right: 10px;
     cursor: pointer;
     border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(10, 10, 10, 2);
 }
 
 .cancelButton {

@@ -22,7 +22,7 @@ function App() {
         });
     }, [setAppState]);
 
-    console.log(appState)
+    // console.log(appState)
 
   return (
       <div className={'App'}>
