@@ -34,8 +34,8 @@
     display: flex;
     align-self: center;
     padding: 12px 24px;
-    margin-top: 200px;
-    position: fixed;
+    margin-top: 500px;
+    /*position: fixed;*/
     background-color: red;
     border: none;
     border-radius: 30px;

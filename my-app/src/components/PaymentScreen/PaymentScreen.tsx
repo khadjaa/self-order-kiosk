@@ -62,6 +62,7 @@ export const PaymentScreen = () => {
         setIsOpen(true);
     };
 
+
     const handleClosePopup = () => {
         setIsOpen(false);
     };
@@ -70,9 +71,9 @@ export const PaymentScreen = () => {
         dispatch(addOrderListAC(orderItems))
     }
 
-    setTimeout( () => {
-        navigate('/cook')
-    }, 3000)
+    // setTimeout( () => {
+    //     navigate('/cook')
+    // }, 3000)
 
     return (
         <PaymentPageWrapper>
