@@ -53,7 +53,12 @@ export const PopupWindow: React.FC<PopupWindowPropsType> = ({isOpen, onClose, pa
                             ? <PopupContent>
                                 <img src={ok} alt="ok"/>
                                 <p className={s.orderNumber}>2134</p>
-                                <p>СФОТОГРАЙФИРУЙТЕ ИЛИ ЗАПОМНИТЕ НОМЕР ЗАКАЗА</p>
+                                <p>СФОТОГРАФИРУЙТЕ ИЛИ ЗАПОМНИТЕ НОМЕР ЗАКАЗА</p>
+                                <button
+                                    onClick={() => navigate('/choose')}
+                                    className={s.buttonOrder}>
+                                    Нажмите чтобы заказать
+                                </button>
                             </PopupContent>
                             : <PopupContent>
                                 <img src={no} alt="no"/>
@@ -66,3 +71,14 @@ export const PopupWindow: React.FC<PopupWindowPropsType> = ({isOpen, onClose, pa
     );
 };
 
+//<div class="attention-18">
+//             <div id="info"><b>Продажа алкогольной продукции <br>
+//                 только для лиц старше 18 лет.</b> <br><br>
+//                 Чтобы продолжить, подтвердите, <br>
+//                 что вам уже исполнилось 18 лет.
+//             </div>
+//             <div class="btn18">
+//                 <div id="ans-yes"><span>Мне больше 18 лет</span></div>
+//                 <div id="ans-no"><span>Мне еще нет 18 лет</span></div>
+//             </div>
+//         </div>

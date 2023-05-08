@@ -5,7 +5,6 @@ import {AppStoreType} from "../../store/store";
 import {addOrderListAC, ProductsType} from "../../reducers/orderInfoReducer";
 import {PopupWindow} from "../PopupWindow/PopupWindow";
 import {useNavigate} from "react-router-dom";
-import ApaImg from "../../images/APA.png";
 
 const PaymentPageWrapper = styled.div`
   display: flex;
@@ -53,7 +52,6 @@ export const PaymentScreen = () => {
     const dispatch = useDispatch()
 
     let sum = 0
-    const totalPrice = orderItems.map(el => sum += el.price)
 
     const [paymentStatus, setPaymentStatus] = useState(true)
     const [isOpen, setIsOpen] = useState(false);
@@ -61,7 +59,6 @@ export const PaymentScreen = () => {
     const handleOpenPopup = () => {
         setIsOpen(true);
     };
-
 
     const handleClosePopup = () => {
         setIsOpen(false);
@@ -71,9 +68,9 @@ export const PaymentScreen = () => {
         dispatch(addOrderListAC(orderItems))
     }
 
-    setTimeout( () => {
-        navigate('/cook')
-    }, 3000)
+    // setTimeout(() => {
+    //     navigate('/cook')
+    // }, 3000)
 
     return (
         <PaymentPageWrapper>
@@ -85,9 +82,12 @@ export const PaymentScreen = () => {
                 <PaymentInstructions>Пожалуйста, наведите камеру на QR-код для совершения оплаты</PaymentInstructions>
             </PaymentBox>
             <button onClick={handleOpenPopup}>Открыть всплывающее окно</button>
-            <PopupWindow isOpen={isOpen} onClose={handleClosePopup} paymentStatus={paymentStatus}>
+            <PopupWindow
+                isOpen={isOpen}
+                onClose={handleClosePopup}
+                paymentStatus={paymentStatus}>
                 <p>НОМЕР ВАШЕГО ЗАКАЗА 2134</p>
-                <p>СФОТОГРАЙФИРУЙТЕ ИЛИ ЗАПОМНИТЕ НОМЕР ЗАКАЗА</p>
+                <p>СФОТОГРАФИРУЙТЕ ИЛИ ЗАПОМНИТЕ НОМЕР ЗАКАЗА</p>
             </PopupWindow>
         </PaymentPageWrapper>
     );

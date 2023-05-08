@@ -54,10 +54,16 @@ export const orderInfoReducer = (state: any = initialState, action: ActionsTypes
             }
         }
         case 'ADD-PRODUCT' : {
-            const itemsPrice = state.order.orderItems.reduce(
-                (a: any, c: any) => a + c.price * c.price,
-                0
-            );
+            const itemsPrice = state.order.orderItems.reduce((count: any, item: any) => {
+                if (count[item.name]) {
+                    count[item.name]++;
+                }
+                // else {
+                //     count[item.name] = 1;
+                // }
+                return count;
+            }, {});
+
             console.log(itemsPrice)
             return {
                 ...state,
