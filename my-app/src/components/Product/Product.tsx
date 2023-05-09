@@ -19,9 +19,9 @@ export const Product = () => {
 
     const [count, setCount] = useState(0);
     const [dop, setDop] = useState([
-        {id: 1, name: 'Кебаб бараний', isDone: true},
-        {id: 2, name: 'Сырный соус', isDone: true},
-        {id: 3, name: 'Баварский соус', isDone: true},
+        {id: 1, name: 'Кебаб бараний', price: 99},
+        {id: 2, name: 'Сырный соус', price: 30},
+        {id: 3, name: 'Баварский соус', price: 30},
     ])
 
     const incrementCount = () => setCount(count + 1);
@@ -35,7 +35,14 @@ export const Product = () => {
                 <img src={product.image} alt={product.name}/>
             </div>
             <div className={s.productDetails}>
-                <h3>{product.name}</h3>
+                <h2>{product.name.toUpperCase()}</h2>
+             <div className={s.kolvo}>
+                 <div className={s.counter}>
+                     <button className={s.buttonCount} onClick={decrementCount}>-</button>
+                     <input type="text" value={1} readOnly className={s.inputCount}/>
+                     <button className={s.buttonCount} onClick={incrementCount}>+</button>
+                 </div>
+             </div>
                 <p>Состав:</p>
                 {
                     product.compound.map(el => {
@@ -54,17 +61,18 @@ export const Product = () => {
                 }
             </div>
             <div className={s.productDetails}>
-                <p>Дополнительно:</p>
+                <p>Дополнительные ингридиенты:</p>
                 {
                     dop.map(el => {
                         return (
-                            <li key={el.id} className={s.prod}>
+                            <li key={el.id} className={s.prodDop}>
+                                <span className={s.h66}>{el.name} </span>
                                 <div className={s.counter}>
                                     <button className={s.buttonCount} onClick={decrementCount}>-</button>
                                     <input type="text" value={count} readOnly className={s.inputCount}/>
                                     <button className={s.buttonCount} onClick={incrementCount}>+</button>
                                 </div>
-                                <span>{el.name}</span>
+                                <span>{el.price} р</span>
                             </li>
                         )
                     })

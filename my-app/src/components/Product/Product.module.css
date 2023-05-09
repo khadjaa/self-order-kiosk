@@ -32,8 +32,16 @@
     box-shadow: 0 2px 4px rgba(10, 10, 10, 2);
 }
 
-.productDetails h3 {
+.kolvo {
+    display: flex;
+    align-content: center;
+    margin: 0 67px 0 67px;
+    padding-bottom: 20px;
+}
+
+.productDetails h2 {
     text-align: center;
+    margin: 5px;
 }
 
 .prod {
@@ -122,14 +130,27 @@ input[type="radio"]:checked::after {
 
 }
 
+.prodDop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+.h66 {
+    text-align: start;
+    width: 320px;
+}
+
 .counter {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 10px 0 0 350px;
 }
 
 .buttonCount {
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 0.5rem 1rem;
     margin: 0 0.5rem;
     border: none;
@@ -141,7 +162,7 @@ input[type="radio"]:checked::after {
 }
 
 .inputCount {
-    font-size: 2rem;
+    font-size: 1.5rem;
     width: 4rem;
     text-align: center;
     border: none;
