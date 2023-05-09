@@ -3,3 +3,30 @@
     margin: 0;
 }
 
+.eighteenButtons {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.buttonYes,
+.buttonNo {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 7px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    border-radius: 4px;
+    font-size: 23px;
+}
+
+.buttonNo {
+    background-color: red;
+}
+
+.text {
+    margin: 30px;
+    font-size: 24px;
+    text-align: center;
+}
