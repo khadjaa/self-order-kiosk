@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import s from './Product.module.css'
 import {useNavigate} from "react-router-dom";
 import {shallowEqual, useDispatch, useSelector} from "react-redux";
@@ -16,6 +16,18 @@ export const Product = () => {
         dispatch(addProductAC(product.id))
         navigate('/order')
     }
+
+    const [count, setCount] = useState(0);
+    const [dop, setDop] = useState([
+        {id: 1, name: 'Кебаб бараний', isDone: true},
+        {id: 2, name: 'Сырный соус', isDone: true},
+        {id: 3, name: 'Баварский соус', isDone: true},
+    ])
+
+    const incrementCount = () => setCount(count + 1);
+    const decrementCount = () => setCount(count - 1);
+
+
 
     return (
         <div className={s.productCard}>
@@ -35,6 +47,23 @@ export const Product = () => {
                                     className={s.checkBox}
                                     onClick={() => dispatch(changeCompoundAC(product.id, el.id, !el.isDone))}
                                 />
+                                <span>{el.name}</span>
+                            </li>
+                        )
+                    })
+                }
+            </div>
+            <div className={s.productDetails}>
+                <p>Дополнительно:</p>
+                {
+                    dop.map(el => {
+                        return (
+                            <li key={el.id} className={s.prod}>
+                                <div className={s.counter}>
+                                    <button className={s.buttonCount} onClick={decrementCount}>-</button>
+                                    <input type="text" value={count} readOnly className={s.inputCount}/>
+                                    <button className={s.buttonCount} onClick={incrementCount}>+</button>
+                                </div>
                                 <span>{el.name}</span>
                             </li>
                         )

@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {shallowEqual, useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../../store/store";
 import {cancelOrderAC, CategoryType, chooseProductAC, ProductsType} from "../../reducers/orderInfoReducer";
+import {PopupWindow} from "../PopupWindow/PopupWindow";
 
 export const OrderScreen = () => {
     const categories = useSelector<AppStoreType, CategoryType[]>(state => state.info.order.categories)
@@ -52,6 +53,7 @@ export const OrderScreen = () => {
         filteredArray = products.filter(el => el.categoryName === 'Напитки')
     }
 
+
     let sum = 0
 
     return (
@@ -62,7 +64,7 @@ export const OrderScreen = () => {
                         setCategoryDish(category.name)
                         setFilter(category.name)
                         // dispatch(changeFilterAC(category.name))
-                        console.log('catName',category.name)
+                        console.log('catName', category.name)
                     }
 
                     return (
@@ -74,6 +76,15 @@ export const OrderScreen = () => {
                              onClick={changeFilterHandler}
                         >
                             <img src={category.image} alt="ima"/>
+                            {/*{category.name === 'Алкоголь' && category.name === categoryDish*/}
+                            {/*    ? <PopupWindow*/}
+                            {/*        isOpen={true}*/}
+                            {/*        onClose={() => {*/}
+                            {/*        }}*/}
+                            {/*        paymentStatus={true}>*/}
+                            {/*        <p>Вам есть 18 лет?</p>*/}
+                            {/*        <p>ЧРЕЗМЕРНОЕ УПОТРЕБЛЕНИЕ АЛКОГОЛЯ ВРЕДИТ ВАШЕМУ ЗДОРОВЬЮ</p>*/}
+                            {/*    </PopupWindow> : null}*/}
                         </div>
                     )
                 })}

@@ -86,7 +86,7 @@ export const initialState = {
             },
             {
                 id: 5,
-                name: 'Пиво АПА',
+                name: 'Пиво APA',
                 categoryName: 'Алкоголь',
                 description: 'На выбор',
                 price: 200,
