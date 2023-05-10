@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../../store/store";
 import s from './OrderList.module.css'
 import {RemoveOrderListAC} from "../../reducers/orderInfoReducer";
+import {ColorButtons} from "../Button";
 
 export const OrderList = () => {
 
@@ -17,7 +18,7 @@ export const OrderList = () => {
             {orderList.map((subArray: any, index: any) => (
                 <li key={index} className={s.borderLi}>
                     <p className={s.number}>#2134</p>
-                    <p className={s.orderType}>ЗАКАЗ {orderType}</p>
+                    <p className={s.orderType}>ЗАКАЗ: В ЗАЛЕ{orderType}</p>
                     {subArray.map((item: any) => (
                         <div key={item.id} className={s.borderProd}>
                             <p>{item.name}</p>
@@ -34,6 +35,7 @@ export const OrderList = () => {
                     </div>
                 </li>
             ))}
+            <ColorButtons/>
         </ul>
     );
 };

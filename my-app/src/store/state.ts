@@ -107,14 +107,44 @@ export const initialState = {
         orderList: [
             [
                 {
-                    id: 6,
-                    name: 'Lipton',
-                    categoryName: 'Напитки',
-                    description: 'На выбор',
-                    price: 200,
-                    image: LiptonImg,
+                    id: 1,
+                    categoryName: 'Гранд-Кебаб',
+                    name: 'Гранд-Кебаб',
+                    description: 'Подача на тарелке для самых голодных',
+                    price: 350,
+                    image: grandImg,
+                    compound: [
+                        {id: 1, name: 'Testo', isDone: true},
+                        {id: 2, name: 'Souse', isDone: true},
+                    ]
+                },
+                {
+                    id: 3,
+                    categoryName: 'Закуски',
+                    name: 'Картофель фри',
+                    description: 'Обжаренный по-бельгийски',
+                    price: 150,
+                    image: friesImg,
                     compound: []
-                }
+                },
+                {
+                    id: 0,
+                    categoryName: 'Реал-Кебаб',
+                    name: 'Реал-Кебаб',
+                    description: 'Традиционная подача в свеже испеченной лепёшке',
+                    price: 250,
+                    image: realKurImg,
+                    compound: [
+                        {id: 1, name: 'Кебаб куриный', isDone: true},
+                        {id: 2, name: 'Салат айсберг', isDone: true},
+                        {id: 3, name: 'Пекинская капустаг', isDone: true},
+                        {id: 4, name: 'Морковь по-корейски', isDone: true},
+                        {id: 5, name: 'Лук репчатый', isDone: false},
+                        {id: 6, name: 'Белый соус', isDone: true},
+                        {id: 7, name: 'Красный соус', isDone: true},
+                        {id: 8, name: 'Лепешка', isDone: true},
+                    ]
+                },
             ]
         ]
     },
