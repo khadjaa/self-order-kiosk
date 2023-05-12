@@ -58,9 +58,6 @@ export const orderInfoReducer = (state: any = initialState, action: ActionsTypes
                 if (count[item.name]) {
                     count[item.name]++;
                 }
-                // else {
-                //     count[item.name] = 1;
-                // }
                 return count;
             }, {});
 

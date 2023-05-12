@@ -35,7 +35,6 @@ export const OrderList = () => {
                     </div>
                 </li>
             ))}
-            <ColorButtons/>
         </ul>
     );
 };
