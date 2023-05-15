@@ -13,6 +13,7 @@ export const OrderList = () => {
     const dispatch = useDispatch()
 
     //orderList[0][0].compound[0].isDone
+
     return (
         <ul>
             {orderList.map((subArray: any, index: any) => (

@@ -16,12 +16,12 @@ export const initialState = {
         orderType: '',
         orderItems: [],
         categories: [
-            {id: 1, name: 'Гранд-Кебаб', image: comboImg},
-            {id: 2, name: 'Супы', image: soupImg},
-            {id: 3, name: 'Реал-Кебаб', image: kebabImg},
-            {id: 4, name: 'Закуски', image: img},
-            {id: 5, name: 'Напитки', image: lemonadeImg},
-            {id: 6, name: 'Алкоголь', image: alcoholImg},
+            // {id: 1, name: 'Гранд-Кебаб', image: comboImg},
+            // {id: 2, name: 'Супы', image: soupImg},
+            // {id: 3, name: 'Реал-Кебаб', image: kebabImg},
+            // {id: 4, name: 'Закуски', image: img},
+            // {id: 5, name: 'Напитки', image: lemonadeImg},
+            // {id: 6, name: 'Алкоголь', image: alcoholImg},
         ],
         products: [
             {

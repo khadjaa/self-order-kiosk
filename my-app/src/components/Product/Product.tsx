@@ -8,8 +8,8 @@ import {addProductAC, changeCompoundAC, ProductsType} from "../../reducers/order
 export const Product = () => {
 
     const product = useSelector<AppStoreType, ProductsType>(state => state.info.order.product, shallowEqual)
-
     const dispatch = useDispatch()
+
     const navigate = useNavigate()
 
     const addProductHandler = () => {
@@ -26,8 +26,6 @@ export const Product = () => {
 
     const incrementCount = () => setCount(count + 1);
     const decrementCount = () => setCount(count - 1);
-
-
 
     return (
         <div className={s.productCard}>

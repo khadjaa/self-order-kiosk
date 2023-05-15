@@ -1,4 +1,5 @@
 import {initialState} from "../store/state";
+import kebabImg from '../images/kebab.svg'
 
 export type CategoryType = {
     id: string, name: string, image: string
@@ -38,6 +39,7 @@ type ActionsTypes = chooseOrderType
     | changeFilter
     | AddOrderList
     | RemoveOrderList
+    | GetCategories
 
 export const orderInfoReducer = (state: any = initialState, action: ActionsTypes) => {
     switch (action.type) {
@@ -79,7 +81,6 @@ export const orderInfoReducer = (state: any = initialState, action: ActionsTypes
                 }
             }
         }
-
         case 'CHANGE-COMPOUND' : {
             const newCompound = state.order.product.compound
                 .map((comp: CompoundType) => {
@@ -116,7 +117,6 @@ export const orderInfoReducer = (state: any = initialState, action: ActionsTypes
             }
         }
         case "CHANGE-FILTER": {
-            // debugger
             return {
                 ...state,
                 order: {
@@ -145,6 +145,16 @@ export const orderInfoReducer = (state: any = initialState, action: ActionsTypes
                 }
             }
         }
+        case "GET-CATEGORIES": {
+            return {
+                ...state,
+                order: {
+                    ...state.order,
+                    categories: action.payload.arr.map((el: any) => ({...el, image: kebabImg}))
+                }
+            }
+        }
+
         default:
             return state
     }
@@ -221,5 +231,13 @@ export const RemoveOrderListAC = (index: number) => {
     return {
         type: 'REMOVE-ORDER-LIST',
         payload: {index}
+    } as const
+}
+
+type GetCategories = ReturnType<typeof GetCategoriesAC>
+export const GetCategoriesAC = (arr: any) => {
+    return {
+        type: 'GET-CATEGORIES',
+        payload: {arr}
     } as const
 }

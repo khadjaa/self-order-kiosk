@@ -12,9 +12,7 @@ export const OrderScreen = () => {
     const orderType = useSelector((state: AppStoreType) => state.info.order.orderType)
     const orderItems = useSelector<AppStoreType, ProductsType[]>(state => state.info.order.orderItems, shallowEqual)
 
-    console.log('products', products)
     console.log('categories', categories)
-    console.log('orderType', orderType)
 
     const dispatch = useDispatch()
 
